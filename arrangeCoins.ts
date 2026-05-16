@@ -5,8 +5,6 @@ function arrangeCoins(n: number): number {
         stairs++;
         n -= stairs;
     }
-
-
     return stairs > 1 ? stairs - 1 : stairs;
 };
 
