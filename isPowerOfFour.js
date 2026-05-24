@@ -1,6 +1,7 @@
+"use strict";
 function isPowerOfFour(n) {
-    var sum = -Infinity;
-    var i = 0;
+    let sum = -Infinity;
+    let i = 0;
     while (sum !== n) {
         sum = Math.pow(4, i);
         if (sum > n)

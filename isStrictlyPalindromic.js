@@ -1,7 +1,8 @@
+"use strict";
 function isStrictlyPalindromic(n) {
-    for (var i = 2; i <= n - 2; i++) {
-        var base = i.toString(i);
-        var reverseBased = base.split('').reverse().join('');
+    for (let i = 2; i <= n - 2; i++) {
+        const base = i.toString(i);
+        const reverseBased = base.split('').reverse().join('');
         if (base !== reverseBased)
             return false;
     }

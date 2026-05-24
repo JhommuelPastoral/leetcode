@@ -1,5 +1,6 @@
+"use strict";
 function arrangeWords(text) {
-    var textArr = text.split(' ').map(function (val) { return val.toLowerCase(); }).sort(function (a, b) { return a.length - b.length; });
+    const textArr = text.split(' ').map((val) => val.toLowerCase()).sort((a, b) => a.length - b.length);
     textArr[0] = textArr[0][0].toUpperCase() + textArr[0].slice(1);
     return textArr.join(' ');
 }

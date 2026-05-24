@@ -1,8 +1,9 @@
+"use strict";
 function scoreDifference(nums) {
-    var playerTurn = 1;
-    var player1 = 0;
-    var player2 = 0;
-    for (var i = 0; i < nums.length; i++) {
+    let playerTurn = 1;
+    let player1 = 0;
+    let player2 = 0;
+    for (let i = 0; i < nums.length; i++) {
         if (nums[i] % 2 !== 0)
             playerTurn = playerTurn === 1 ? 2 : 1;
         if ((i + 1) % 6 === 0)

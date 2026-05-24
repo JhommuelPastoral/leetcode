@@ -1,16 +1,16 @@
+"use strict";
 function maxIceCream(costs, coins) {
-    var max = 0;
-    var maxCost = Math.max.apply(Math, costs);
-    var countArr = new Array(maxCost + 1).fill(0);
-    var newArr = [];
-    for (var i = 0; i < costs.length; i++)
+    let max = 0;
+    const maxCost = Math.max(...costs);
+    const countArr = new Array(maxCost + 1).fill(0);
+    const newArr = [];
+    for (let i = 0; i < costs.length; i++)
         countArr[costs[i]] += 1;
-    for (var i = 0; i < countArr.length; i++) {
+    for (let i = 0; i < countArr.length; i++) {
         if (countArr[i] === 0)
             continue;
-        var tempArr = new Array(countArr[i]).fill(i);
-        for (var _i = 0, tempArr_1 = tempArr; _i < tempArr_1.length; _i++) {
-            var cost = tempArr_1[_i];
+        const tempArr = new Array(countArr[i]).fill(i);
+        for (const cost of tempArr) {
             if (cost <= coins) {
                 max++;
                 coins -= cost;

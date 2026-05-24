@@ -1,8 +1,9 @@
+"use strict";
 function finalPrices(prices) {
-    var discountedPrices = [];
-    for (var i = 0; i < prices.length; i++) {
-        var discount = null;
-        for (var j = i + 1; j < prices.length; j++) {
+    const discountedPrices = [];
+    for (let i = 0; i < prices.length; i++) {
+        let discount = null;
+        for (let j = i + 1; j < prices.length; j++) {
             if (j > i && prices[j] <= prices[i]) {
                 discount = prices[i] - prices[j];
                 break;

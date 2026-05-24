@@ -1,23 +1,15 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+"use strict";
 function relativeSortArray(arr1, arr2) {
-    var res = [];
-    var map = new Map();
-    var i = 0, j = 0;
+    let res = [];
+    const map = new Map();
+    let i = 0, j = 0;
     while (i < arr1.length) {
         map.set(arr1[i], (map.get(arr1[i]) || 0) + 1);
         i++;
     }
-    var set = new Set(__spreadArray(__spreadArray([], arr2, true), arr1.sort(function (a, b) { return a - b; }), true));
-    set.forEach(function (value) {
-        res = __spreadArray(__spreadArray([], res, true), new Array(map.get(value)).fill(value), true);
+    const set = new Set([...arr2, ...arr1.sort((a, b) => a - b)]);
+    set.forEach((value) => {
+        res = [...res, ...new Array(map.get(value)).fill(value)];
     });
     return res;
 }

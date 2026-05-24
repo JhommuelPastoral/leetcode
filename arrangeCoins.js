@@ -1,5 +1,6 @@
+"use strict";
 function arrangeCoins(n) {
-    var stairs = 0;
+    let stairs = 0;
     while (n >= 0) {
         stairs++;
         n -= stairs;
