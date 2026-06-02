@@ -8,7 +8,6 @@ function maxProductSubArray(nums, k) {
         window *= nums[i];
         window /= nums[i - k];
         max = Math.max(max, window);
-        console.log(window);
     }
     return max;
 }
@@ -24,15 +23,17 @@ function hasSubtringAnagram(s, anagram) {
     }
     for (var i = 0; i < anagram.length; i++)
         window.set(s[i], ((_b = window.get(s[i])) !== null && _b !== void 0 ? _b : 0) + 1);
-    var isAnagram = true;
-    for (var _d = 0, _e = Array.from(mapAnagram); _d < _e.length; _d++) {
-        var _f = _e[_d], key = _f[0], value = _f[1];
-        if (window.get(key) !== value) {
-            isAnagram = false;
-            break;
+    var isEqual = function () {
+        for (var _i = 0, _a = Array.from(mapAnagram); _i < _a.length; _i++) {
+            var _b = _a[_i], key = _b[0], value = _b[1];
+            if (window.get(key) !== value) {
+                return false;
+                break;
+            }
         }
-    }
-    if (isAnagram)
+        return true;
+    };
+    if (isEqual())
         return true;
     for (var i = anagram.length; i < s.length; i++) {
         window.set(s[i], ((_c = window.get(s[i])) !== null && _c !== void 0 ? _c : 0) + 1);
@@ -40,17 +41,20 @@ function hasSubtringAnagram(s, anagram) {
         window.set(prev, window.get(prev) - 1);
         if (window.get(prev) === 0)
             window.delete(prev);
-        isAnagram = true;
-        for (var _g = 0, _h = Array.from(mapAnagram); _g < _h.length; _g++) {
-            var _j = _h[_g], key = _j[0], value = _j[1];
+        var isAnagram = true;
+        for (var _d = 0, _e = Array.from(mapAnagram); _d < _e.length; _d++) {
+            var _f = _e[_d], key = _f[0], value = _f[1];
             if (window.get(key) !== value) {
                 isAnagram = false;
                 break;
             }
         }
-        if (isAnagram)
+        if (isEqual())
             return true;
     }
     return false;
 }
 console.log(hasSubtringAnagram("greyhounds", "hoy"));
+console.log(hasSubtringAnagram("abc", "bca"));
+console.log(hasSubtringAnagram("bcaabc", "abc"));
+console.log(hasSubtringAnagram("aaaaab", "aaab"));

@@ -6,7 +6,6 @@ function maxProductSubArray(nums: number[], k: number): number {
     window *= nums[i];
     window /= nums[i-k];
     max = Math.max(max, window);
-    console.log(window);
   }
 
   return max;
@@ -22,28 +21,30 @@ function hasSubtringAnagram(s: string, anagram: string): boolean {
   const window = new Map<string, number>();
   for(const ch of anagram) mapAnagram.set(ch, (mapAnagram.get(ch) ?? 0) + 1);
   for(let i = 0; i < anagram.length; i++) window.set(s[i], (window.get(s[i]) ?? 0) + 1);
-  let isAnagram = true;
-  for(const [key,value] of Array.from(mapAnagram)) {
-    if(window.get(key) !== value) {
-      isAnagram = false;
-      break;
+  const isEqual = () =>{
+    for(const [key,value] of Array.from(mapAnagram)) {
+      if(window.get(key) !== value) {
+        return false;
+        break;
+      }
     }
+    return true;
   }
-  if(isAnagram) return true;
+  if(isEqual()) return true;
 
   for(let i = anagram.length; i < s.length; i++){
     window.set(s[i], (window.get(s[i]) ?? 0) + 1);
     const prev = s[i - anagram.length];
     window.set(prev, window.get(prev)! - 1);
     if(window.get(prev) === 0) window.delete(prev);
-    isAnagram = true;
+    let isAnagram = true;
     for(const [key,value] of Array.from(mapAnagram)) {
       if(window.get(key) !== value) {
         isAnagram = false;
         break;
       }
     }
-    if(isAnagram) return true;
+    if(isEqual()) return true;
 
   }
 
@@ -55,3 +56,6 @@ function hasSubtringAnagram(s: string, anagram: string): boolean {
 
 
 console.log(hasSubtringAnagram("greyhounds", "hoy"));
+console.log(hasSubtringAnagram("abc", "bca"));
+console.log(hasSubtringAnagram("bcaabc", "abc"));
+console.log(hasSubtringAnagram("aaaaab", "aaab"));
