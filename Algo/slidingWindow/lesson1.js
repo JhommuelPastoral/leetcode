@@ -11,5 +11,16 @@ function maxSumSubArray(nums, k) {
     return sum;
 }
 ;
+function maxSumSubArrayOptimized(nums, k) {
+    var window = nums.slice(0, k).reduce(function (a, b) { return a + b; }, 0);
+    var max = window;
+    for (var i = k; i < nums.length; i++) {
+        window += nums[i];
+        window -= nums[i - k];
+        max = Math.max(max, window);
+    }
+    return max;
+}
 var arr = [1, 4, 1, 10, 25, 3, 5, 0, 26];
 console.log(maxSumSubArray(arr, 4));
+console.log(maxSumSubArrayOptimized(arr, 4));
