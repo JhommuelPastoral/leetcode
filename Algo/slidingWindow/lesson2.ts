@@ -25,7 +25,6 @@ function hasSubtringAnagram(s: string, anagram: string): boolean {
     for(const [key,value] of Array.from(mapAnagram)) {
       if(window.get(key) !== value) {
         return false;
-        break;
       }
     }
     return true;
