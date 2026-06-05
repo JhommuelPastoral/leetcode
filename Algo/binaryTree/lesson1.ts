@@ -11,8 +11,10 @@ class TreeNode {
 }
 function printTree(node: TreeNode | null): void {
     if (!node) return;
-
-    console.log(node.val);
+    if(node.val === 4){
+      console.log("Found", node.val);
+      return;
+    }
 
     printTree(node.left);
     printTree(node.right);

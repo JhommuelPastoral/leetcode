@@ -11,7 +11,10 @@ var TreeNode = /** @class */ (function () {
 function printTree(node) {
     if (!node)
         return;
-    console.log(node.val);
+    if (node.val === 4) {
+        console.log("Found", node.val);
+        return;
+    }
     printTree(node.left);
     printTree(node.right);
 }
