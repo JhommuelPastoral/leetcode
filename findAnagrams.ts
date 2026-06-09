@@ -11,7 +11,7 @@ function findAnagrams(s: string, p: string): number[] {
     for (let i = 0; i < p.length; i++) {
         tempMap.set(s[i], (tempMap.get(s[i]) ?? 0) + 1);
     }
-
+    
     const isSame = () => {
         if (tempMap.size !== map.size) return false;
 
