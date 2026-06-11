@@ -7,3 +7,4 @@ function validDigit(n: number, x: number): boolean {
 
 console.log(validDigit(123, 1)); // true
 console.log(validDigit(123, 4)); // false
+console.log(validDigit(123, 2));
