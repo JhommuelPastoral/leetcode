@@ -9,6 +9,7 @@ function moveZeroes(nums) {
             nums[left] = nums[right];
             nums[right] = temp;
             left++;
+            console.log(nums);
         }
         right++;
     }
