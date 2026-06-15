@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function threeSum(nums) {
     var res = [];
     var seen = new Set();
@@ -7,6 +9,8 @@ function threeSum(nums) {
         var first = nums[i];
         var left = i + 1;
         var right = length;
+        if (first > 0)
+            break;
         while (left < right) {
             if (first + nums[left] + nums[right] > 0)
                 right--;
@@ -24,6 +28,9 @@ function threeSum(nums) {
     }
     return res;
 }
+var start = performance.now();
 console.log(threeSum([-1, 0, 1, 2, -1, -4])); // Output: [[-1,-1,2],[-1,0,1]]
 console.log(threeSum([0, 1, 1])); // Output: []
 console.log(threeSum([0, 0, 0])); // Output: [[0,0,0]]
+var end = performance.now();
+console.log("Execution time: ".concat(end - start, " ms"));
