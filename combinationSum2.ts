@@ -35,15 +35,9 @@ function backTrack({candidates, target, current, index, sum, result}: Props): vo
     }
 }
 
-function combinationSum2(
-    candidates: number[],
-    target: number
-): number[][] {
-
+function combinationSum2(candidates: number[], target: number): number[][] {
     candidates.sort((a, b) => a - b);
-
     const result: number[][] = [];
-
     backTrack({
         candidates,
         target,
