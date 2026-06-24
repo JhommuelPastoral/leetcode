@@ -1,8 +1,8 @@
+"use strict";
 function countSeniors(details) {
-    var res = 0;
-    for (var _i = 0, details_1 = details; _i < details_1.length; _i++) {
-        var detail = details_1[_i];
-        var parsedAge = Number.parseInt("".concat(detail[11]).concat(detail[12]));
+    let res = 0;
+    for (const detail of details) {
+        const parsedAge = Number.parseInt(`${detail[11]}${detail[12]}`);
         if (parsedAge > 60)
             res++;
     }

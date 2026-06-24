@@ -1,25 +1,26 @@
+"use strict";
 function rotateTheBox(boxGrid) {
-    var rowSize = boxGrid.length;
-    var colSize = boxGrid[0].length;
-    var rotated = new Array(colSize).fill(null).map(function () { return new Array(rowSize).fill(''); });
-    var index = 0;
-    for (var i = boxGrid.length - 1; i >= 0; i--) {
-        var row = boxGrid[i];
-        var j = 0;
+    const rowSize = boxGrid.length;
+    const colSize = boxGrid[0].length;
+    const rotated = new Array(colSize).fill(null).map(() => new Array(rowSize).fill(''));
+    let index = 0;
+    for (let i = boxGrid.length - 1; i >= 0; i--) {
+        const row = boxGrid[i];
+        let j = 0;
         while (j < row.length) {
             rotated[j][index] = row[j];
             j++;
         }
         index++;
     }
-    for (var i = 0; i < rowSize; i++) {
-        var temp = [];
-        for (var j = colSize - 2; j >= 0; j--) {
-            var col = rotated[j][i];
+    for (let i = 0; i < rowSize; i++) {
+        const temp = [];
+        for (let j = colSize - 2; j >= 0; j--) {
+            let col = rotated[j][i];
             if (col === "#") {
-                var counter = j;
+                let counter = j;
                 while (counter < colSize - 1) {
-                    var nextCol = rotated[counter + 1][i];
+                    const nextCol = rotated[counter + 1][i];
                     if (nextCol === '.') {
                         rotated[counter + 1][i] = col;
                         rotated[counter][i] = nextCol;

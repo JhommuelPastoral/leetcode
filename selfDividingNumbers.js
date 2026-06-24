@@ -1,10 +1,10 @@
+"use strict";
 function selfDividingNumbers(left, right) {
-    var res = [];
-    for (var i = left; i <= right; i++) {
-        var digits = i.toString().split('');
-        var isSelfDriving = true;
-        for (var _i = 0, digits_1 = digits; _i < digits_1.length; _i++) {
-            var digit = digits_1[_i];
+    let res = [];
+    for (let i = left; i <= right; i++) {
+        const digits = i.toString().split('');
+        let isSelfDriving = true;
+        for (const digit of digits) {
             if (i % Number.parseInt(digit) !== 0) {
                 isSelfDriving = false;
                 break;

@@ -1,11 +1,12 @@
+"use strict";
 function longestMonotonicSubarray(nums) {
     if (nums.length === 1)
         return 1;
-    var asc = 0;
-    var desc = 0;
-    var counterAsc = 1;
-    var counterDesc = 1;
-    for (var i = 0; i < nums.length - 1; i++) {
+    let asc = 0;
+    let desc = 0;
+    let counterAsc = 1;
+    let counterDesc = 1;
+    for (let i = 0; i < nums.length - 1; i++) {
         if (nums[i] < nums[i + 1])
             counterAsc++;
         else

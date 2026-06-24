@@ -1,6 +1,7 @@
+"use strict";
 function alternatingSum(nums) {
-    var res = 0;
-    for (var i = 0; i < nums.length; i++) {
+    let res = 0;
+    for (let i = 0; i < nums.length; i++) {
         if (i % 2 === 0)
             res += nums[i];
         else

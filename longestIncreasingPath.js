@@ -1,49 +1,40 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+"use strict";
 function backTrack(matrix, row, col, res, path) {
     if (row < 0 ||
         row >= matrix.length ||
         col < 0 ||
         col >= matrix[row].length ||
-        path.has("".concat(row, ",").concat(col))) {
-        return __spreadArray([], res, true);
+        path.has(`${row},${col}`)) {
+        return [...res];
     }
     if (matrix[row][col] <= res[res.length - 1] && res.length > 0)
-        return __spreadArray([], res, true);
-    path.add("".concat(row, ",").concat(col));
+        return [...res];
+    path.add(`${row},${col}`);
     res.push(matrix[row][col]);
-    var best = __spreadArray([], res, true);
-    var direction = [
+    let best = [...res];
+    const direction = [
         [-1, 0], // UP
         [1, 0], // DOWN
         [0, 1], // RIGHT
         [0, -1] // LEFT
     ];
     // direction row and col
-    for (var _i = 0, direction_1 = direction; _i < direction_1.length; _i++) {
-        var _a = direction_1[_i], dr = _a[0], dc = _a[1];
-        var candidate = backTrack(matrix, row + dr, col + dc, res, path);
+    for (const [dr, dc] of direction) {
+        const candidate = backTrack(matrix, row + dr, col + dc, res, path);
         if (candidate.length > best.length)
             best = candidate;
     }
     // Search for Asc //
-    path.delete("".concat(row, ",").concat(col));
+    path.delete(`${row},${col}`);
     res.pop();
     return best;
 }
 function longestIncreasingPath(matrix) {
-    var longest = 0;
-    for (var i = 0; i < matrix.length; i++) {
-        for (var j = 0; j < matrix[i].length; j++) {
-            var path = new Set();
-            var res = backTrack(matrix, i, j, [], path);
+    let longest = 0;
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            const path = new Set();
+            const res = backTrack(matrix, i, j, [], path);
             longest = Math.max(res.length, longest);
         }
     }

@@ -1,24 +1,18 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function backTrack(i, arr, res, subset) {
     if (i === arr.length) {
-        res.push(__spreadArray([], subset, true));
+        res.push([...subset]);
         return res;
     }
     subset.push(arr[i]);
     backTrack(i + 1, arr, res, subset);
     subset.pop();
     backTrack(i + 1, arr, res, subset);
+    return res;
 }
 function subsets(nums) {
-    var res = backTrack(0, nums, [], []);
+    const res = backTrack(0, nums, [], []);
     return res;
 }
 ;

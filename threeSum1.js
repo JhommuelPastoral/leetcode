@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function threeSum(nums) {
-    var res = [];
-    var seen = new Set();
-    var sorted = nums.sort(function (a, b) { return a - b; });
-    var length = nums.length - 1;
-    for (var i = 0; i < nums.length; i++) {
-        var first = nums[i];
-        var left = i + 1;
-        var right = length;
+    const res = [];
+    const seen = new Set();
+    const sorted = nums.sort((a, b) => a - b);
+    const length = nums.length - 1;
+    for (let i = 0; i < nums.length; i++) {
+        const first = nums[i];
+        let left = i + 1;
+        let right = length;
         if (first > 0)
             break;
         while (left < right) {
@@ -17,7 +17,7 @@ function threeSum(nums) {
             else if (first + nums[left] + nums[right] < 0)
                 left++;
             else if (first + nums[left] + nums[right] === 0) {
-                var str = "".concat(first, ",").concat(nums[left], ",").concat(nums[right]);
+                const str = `${first},${nums[left]},${nums[right]}`;
                 if (!seen.has(str)) {
                     seen.add(str);
                     res.push([first, nums[left], nums[right]]);
@@ -28,9 +28,9 @@ function threeSum(nums) {
     }
     return res;
 }
-var start = performance.now();
+const start = performance.now();
 console.log(threeSum([-1, 0, 1, 2, -1, -4])); // Output: [[-1,-1,2],[-1,0,1]]
 console.log(threeSum([0, 1, 1])); // Output: []
 console.log(threeSum([0, 0, 0])); // Output: [[0,0,0]]
-var end = performance.now();
-console.log("Execution time: ".concat(end - start, " ms"));
+const end = performance.now();
+console.log(`Execution time: ${end - start} ms`);

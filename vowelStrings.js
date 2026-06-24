@@ -1,7 +1,8 @@
+"use strict";
 function vowelStrings(words, left, right) {
-    var res = 0;
-    var vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-    for (var i = left; i <= right; i++) {
+    let res = 0;
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    for (let i = left; i <= right; i++) {
         if (vowels.has(words[i][0]) && vowels.has(words[i][words[i].length - 1]))
             res++;
     }

@@ -1,11 +1,12 @@
+"use strict";
 function threeSum(nums) {
-    var res = [];
-    var seen = new Set();
-    for (var i = 0; i < nums.length; i++) {
-        for (var j = i + 1; j < nums.length; j++) {
-            for (var k = j + 1; k < nums.length; k++) {
-                var sum = nums[i] + nums[j] + nums[k];
-                var triplet = [nums[i], nums[j], nums[k]].sort(function (a, b) { return a - b; }).join(',');
+    const res = [];
+    const seen = new Set();
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            for (let k = j + 1; k < nums.length; k++) {
+                const sum = nums[i] + nums[j] + nums[k];
+                const triplet = [nums[i], nums[j], nums[k]].sort((a, b) => a - b).join(',');
                 if (sum === 0 && !seen.has(triplet)) {
                     res.push([nums[i], nums[j], nums[k]]);
                     seen.add(triplet);

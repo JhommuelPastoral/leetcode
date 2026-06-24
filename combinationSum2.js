@@ -1,47 +1,38 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-function backTrack(_a) {
-    var candidates = _a.candidates, target = _a.target, current = _a.current, index = _a.index, sum = _a.sum, result = _a.result;
+"use strict";
+function backTrack({ candidates, target, current, index, sum, result }) {
     if (sum === target) {
-        result.push(__spreadArray([], current, true));
+        result.push([...current]);
         return;
     }
     if (sum > target || index >= candidates.length) {
         return;
     }
-    for (var i = index; i < candidates.length; i++) {
+    for (let i = index; i < candidates.length; i++) {
         if (i > index && candidates[i] === candidates[i - 1]) {
             continue;
         }
         current.push(candidates[i]);
         backTrack({
-            candidates: candidates,
-            target: target,
-            current: current,
+            candidates,
+            target,
+            current,
             index: i + 1,
             sum: sum + candidates[i],
-            result: result
+            result
         });
         current.pop();
     }
 }
 function combinationSum2(candidates, target) {
-    candidates.sort(function (a, b) { return a - b; });
-    var result = [];
+    candidates.sort((a, b) => a - b);
+    const result = [];
     backTrack({
-        candidates: candidates,
-        target: target,
+        candidates,
+        target,
         current: [],
         index: 0,
         sum: 0,
-        result: result
+        result
     });
     return result;
 }

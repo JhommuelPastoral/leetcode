@@ -1,12 +1,11 @@
+"use strict";
 function isHappy(n) {
-    var seen = new Set();
-    var num = n;
+    const seen = new Set();
+    let num = n;
     while (true) {
-        var sum = 0;
-        for (var _i = 0, _a = num.toString(); _i < _a.length; _i++) {
-            var d = _a[_i];
-            sum += Math.pow(Number(d), 2);
-        }
+        let sum = 0;
+        for (let d of num.toString())
+            sum += Number(d) ** 2;
         if (sum === 1)
             return true;
         if (seen.has(sum))

@@ -1,8 +1,9 @@
+"use strict";
 function maxArea(height) {
-    var maxArea = 0;
-    var left = 0, right = height.length - 1;
+    let maxArea = 0;
+    let left = 0, right = height.length - 1;
     while (left < right) {
-        var currArea = Math.min(height[left], height[right]) * (right - left);
+        const currArea = Math.min(height[left], height[right]) * (right - left);
         if (height[left] > height[right])
             right--;
         else

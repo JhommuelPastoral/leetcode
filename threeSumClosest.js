@@ -1,11 +1,12 @@
+"use strict";
 function threeSumClosest(nums, target) {
-    nums.sort(function (a, b) { return a - b; });
-    var closest = nums[0] + nums[1] + nums[2];
-    for (var i = 0; i < nums.length - 2; i++) {
-        var left = i + 1;
-        var right = nums.length - 1;
+    nums.sort((a, b) => a - b);
+    let closest = nums[0] + nums[1] + nums[2];
+    for (let i = 0; i < nums.length - 2; i++) {
+        let left = i + 1;
+        let right = nums.length - 1;
         while (left < right) {
-            var triplet = nums[i] + nums[left] + nums[right];
+            const triplet = nums[i] + nums[left] + nums[right];
             if (Math.abs(triplet - target) < Math.abs(closest - target))
                 closest = triplet;
             if (triplet > target)

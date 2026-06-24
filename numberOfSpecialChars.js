@@ -1,8 +1,8 @@
+"use strict";
 function numberOfSpecialChars(word) {
-    var set = new Set(word);
-    var res = 0;
-    for (var _i = 0, _a = Array.from(set); _i < _a.length; _i++) {
-        var value = _a[_i];
+    const set = new Set(word);
+    let res = 0;
+    for (const value of Array.from(set)) {
         if (value.charCodeAt(0) >= 97 && value.charCodeAt(0) <= 122) {
             if (set.has(value.toUpperCase()))
                 res++;

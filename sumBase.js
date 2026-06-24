@@ -1,8 +1,8 @@
+"use strict";
 function sumBase(n, k) {
-    var str = n.toString(k);
-    var sum = 0;
-    for (var _i = 0, str_1 = str; _i < str_1.length; _i++) {
-        var ch = str_1[_i];
+    const str = n.toString(k);
+    let sum = 0;
+    for (const ch of str) {
         sum += parseInt(ch);
     }
     return sum;

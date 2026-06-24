@@ -1,7 +1,8 @@
+"use strict";
 function binarySearch(arr, target) {
-    var left = 0, right = arr.length - 1;
+    let left = 0, right = arr.length - 1;
     while (left <= right) {
-        var mid = left + Math.floor((right - left) / 2);
+        const mid = left + Math.floor((right - left) / 2);
         if (arr[mid] === target)
             return mid;
         else if (arr[mid] < target)

@@ -1,7 +1,8 @@
+"use strict";
 function countCompleteDayPairs(hours) {
-    var res = 0;
-    for (var i = 0; i < hours.length - 1; i++) {
-        for (var j = i + 1; j < hours.length; j++) {
+    let res = 0;
+    for (let i = 0; i < hours.length - 1; i++) {
+        for (let j = i + 1; j < hours.length; j++) {
             if ((hours[i] + hours[j]) % 24 === 0)
                 res++;
         }

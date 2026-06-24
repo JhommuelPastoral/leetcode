@@ -1,8 +1,8 @@
+"use strict";
 function areNumbersAscending(s) {
-    var arr = s.split(' ');
-    var holder = -Infinity;
-    for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
-        var value = arr_1[_i];
+    const arr = s.split(' ');
+    let holder = -Infinity;
+    for (const value of arr) {
         if (!isNaN(parseInt(value))) {
             if (parseInt(value) > holder)
                 holder = parseInt(value);

@@ -1,11 +1,10 @@
+"use strict";
 function countConsistentStrings(allowed, words) {
-    var allowedSet = new Set(allowed);
-    var res = 0;
-    for (var _i = 0, words_1 = words; _i < words_1.length; _i++) {
-        var word = words_1[_i];
-        var isAllowed = true;
-        for (var _a = 0, word_1 = word; _a < word_1.length; _a++) {
-            var ch = word_1[_a];
+    const allowedSet = new Set(allowed);
+    let res = 0;
+    for (const word of words) {
+        let isAllowed = true;
+        for (const ch of word) {
             if (!allowedSet.has(ch)) {
                 isAllowed = false;
                 break;

@@ -1,11 +1,11 @@
+"use strict";
 function isValid(word) {
     if (word.length < 3)
         return false;
-    var vowels = new Set(['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U']);
-    var hasVowel = true;
-    var hasConsonant = true;
-    for (var _i = 0, word_1 = word; _i < word_1.length; _i++) {
-        var char = word_1[_i];
+    const vowels = new Set(['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U']);
+    let hasVowel = true;
+    let hasConsonant = true;
+    for (const char of word) {
         if ((char.charCodeAt(0) >= 48 && char.charCodeAt(0) <= 57) ||
             (char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) ||
             (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122)) {

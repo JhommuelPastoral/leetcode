@@ -1,7 +1,8 @@
+"use strict";
 function maximumDifference(nums) {
-    var res = -1;
-    var left = 0;
-    var right = 1;
+    let res = -1;
+    let left = 0;
+    let right = 1;
     while (right < nums.length) {
         if (nums[left] < nums[right])
             res = Math.max(res, nums[right] - nums[left]);

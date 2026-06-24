@@ -1,7 +1,8 @@
+"use strict";
 function isAcronym(words, s) {
     if (words.length !== s.length)
         return false;
-    for (var i = 0; i < words.length; i++) {
+    for (let i = 0; i < words.length; i++) {
         if (words[i][0] !== s[i])
             return false;
     }

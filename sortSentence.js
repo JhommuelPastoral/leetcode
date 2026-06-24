@@ -1,9 +1,9 @@
+"use strict";
 function sortSentence(s) {
-    var arr = new Array();
-    for (var _i = 0, _a = s.split(' '); _i < _a.length; _i++) {
-        var word = _a[_i];
-        var digit = Number.parseInt(word[word.length - 1]);
-        arr[digit - 1] = "".concat(word.slice(0, word.length - 1));
+    const arr = new Array();
+    for (const word of s.split(' ')) {
+        const digit = Number.parseInt(word[word.length - 1]);
+        arr[digit - 1] = `${word.slice(0, word.length - 1)}`;
     }
     return arr.join(' ');
 }

@@ -1,5 +1,6 @@
+"use strict";
 function longestPalindrome(s) {
-    var isPalindrome = function (left, right) {
+    const isPalindrome = (left, right) => {
         while (left < right) {
             if (s[left] !== s[right])
                 return false;
@@ -8,14 +9,14 @@ function longestPalindrome(s) {
         }
         return true;
     };
-    var res = '';
-    for (var i = 0; i < s.length; i++) {
-        var left = i;
-        var right = left + 1;
+    let res = '';
+    for (let i = 0; i < s.length; i++) {
+        let left = i;
+        let right = left + 1;
         while (right < s.length) {
             if (s[left] === s[right]) {
-                var length_1 = (right + 1) - left;
-                if (isPalindrome(left, right) && length_1 > res.length) {
+                const length = (right + 1) - left;
+                if (isPalindrome(left, right) && length > res.length) {
                     res = s.substring(left, right + 1);
                 }
             }

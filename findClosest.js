@@ -1,6 +1,7 @@
+"use strict";
 function findClosest(x, y, z) {
-    var diff1 = Math.abs(x - z);
-    var diff2 = Math.abs(y - z);
+    const diff1 = Math.abs(x - z);
+    const diff2 = Math.abs(y - z);
     if (diff1 < diff2)
         return 1;
     else if (diff1 === diff2)

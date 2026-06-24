@@ -1,7 +1,8 @@
+"use strict";
 function isPrime(n) {
     if (n <= 1)
         return false;
-    for (var i = 2; i * i <= n; i++) {
+    for (let i = 2; i * i <= n; i++) {
         if (n % i === 0)
             return false;
     }
@@ -9,13 +10,10 @@ function isPrime(n) {
 }
 function checkPrimeFrequency(nums) {
     var _a;
-    var map = new Map();
-    for (var _i = 0, nums_1 = nums; _i < nums_1.length; _i++) {
-        var num = nums_1[_i];
+    const map = new Map();
+    for (const num of nums)
         map.set(num, ((_a = map.get(num)) !== null && _a !== void 0 ? _a : 0) + 1);
-    }
-    for (var _b = 0, _c = Array.from(map); _b < _c.length; _b++) {
-        var _d = _c[_b], key = _d[0], value = _d[1];
+    for (const [key, value] of Array.from(map)) {
         if (isPrime(value))
             return true;
     }

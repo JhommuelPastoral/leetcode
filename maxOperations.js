@@ -1,6 +1,7 @@
+"use strict";
 function maxOperations(nums) {
-    var sum = nums[0] + nums[1];
-    var res = 0;
+    let sum = nums[0] + nums[1];
+    let res = 0;
     while (nums.length >= 2 && nums[0] + nums[1] === sum) {
         nums.shift();
         nums.shift();

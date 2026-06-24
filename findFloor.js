@@ -1,8 +1,9 @@
+"use strict";
 function findFloor(arr, target) {
-    var left = 0, right = arr.length - 1;
-    var floor = -1;
+    let left = 0, right = arr.length - 1;
+    let floor = -1;
     while (left <= right) {
-        var mid = left + Math.floor((right - left) / 2);
+        const mid = left + Math.floor((right - left) / 2);
         if (arr[mid] === target)
             return mid;
         if (arr[mid] < target) {

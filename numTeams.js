@@ -1,8 +1,9 @@
+"use strict";
 function numTeams(rating) {
-    var res = 0;
-    for (var i = 0; i <= rating.length - 3; i++) {
-        for (var j = i + 1; j <= rating.length - 2; j++) {
-            for (var k = j + 1; k < rating.length; k++) {
+    let res = 0;
+    for (let i = 0; i <= rating.length - 3; i++) {
+        for (let j = i + 1; j <= rating.length - 2; j++) {
+            for (let k = j + 1; k < rating.length; k++) {
                 if (rating[i] < rating[j] && rating[j] < rating[k] ||
                     rating[i] > rating[j] && rating[j] > rating[k])
                     res++;

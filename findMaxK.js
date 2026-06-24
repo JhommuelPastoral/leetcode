@@ -1,8 +1,9 @@
+"use strict";
 function findMaxK(nums) {
-    nums.sort(function (a, b) { return a - b; });
-    var left = 0;
-    var right = nums.length - 1;
-    var max = -1;
+    nums.sort((a, b) => a - b);
+    let left = 0;
+    let right = nums.length - 1;
+    let max = -1;
     while (left < right) {
         if (nums[left] > 0 || nums[right] < 0)
             break;

@@ -1,9 +1,9 @@
+"use strict";
 function passwordStrength(password) {
-    var points = 0;
-    var seen = new Set();
-    var specialChar = new Set(['!', '@', '#', '$']);
-    for (var _i = 0, password_1 = password; _i < password_1.length; _i++) {
-        var char = password_1[_i];
+    let points = 0;
+    const seen = new Set();
+    const specialChar = new Set(['!', '@', '#', '$']);
+    for (const char of password) {
         if (!seen.has(char)) {
             if (!isNaN(Number.parseInt(char)))
                 points += 3;

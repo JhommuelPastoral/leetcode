@@ -1,8 +1,9 @@
+"use strict";
 function subarraySum(nums) {
-    var res = 0;
-    for (var i = 0; i < nums.length; i++) {
-        var start = Math.max(0, i - nums[i]);
-        for (var j = start; j <= i; j++)
+    let res = 0;
+    for (let i = 0; i < nums.length; i++) {
+        const start = Math.max(0, i - nums[i]);
+        for (let j = start; j <= i; j++)
             res += nums[j];
     }
     return res;

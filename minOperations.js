@@ -1,10 +1,11 @@
+"use strict";
 function minOperations(nums, k) {
-    var set = new Set();
-    for (var i = 1; i <= k; i++)
+    const set = new Set();
+    for (let i = 1; i <= k; i++)
         set.add(i);
-    var res = 0;
+    let res = 0;
     while (nums.length > 0 && set.size > 0) {
-        var pop = nums.pop();
+        const pop = nums.pop();
         if (set.has(pop))
             set.delete(pop);
         res++;

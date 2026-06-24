@@ -1,8 +1,9 @@
+"use strict";
 function isMonotonic(nums) {
     if (nums.length === 1)
         return true;
-    var isIncreasing = false;
-    for (var i = 0; i < nums.length; i++) {
+    let isIncreasing = false;
+    for (let i = 0; i < nums.length; i++) {
         if (nums[i] < nums[i + 1]) {
             isIncreasing = true;
             break;
@@ -12,7 +13,7 @@ function isMonotonic(nums) {
         else
             break;
     }
-    for (var i = 0; i < nums.length - 1; i++) {
+    for (let i = 0; i < nums.length - 1; i++) {
         if (isIncreasing) {
             if (nums[i] > nums[i + 1])
                 return false;

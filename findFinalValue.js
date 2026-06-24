@@ -1,5 +1,6 @@
+"use strict";
 function findFinalValue(nums, original) {
-    var set = new Set(nums);
+    const set = new Set(nums);
     while (set.has(original))
         original *= 2;
     return original;

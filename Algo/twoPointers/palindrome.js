@@ -1,3 +1,4 @@
+"use strict";
 // const start = performance.now();
 // function isPalindrome(s: string): boolean {
 //   let left = 0;
@@ -16,9 +17,9 @@
 // console.log(isPalindrome("abcdcba"));
 // console.log(isPalindrome("Abcdcba"));
 // 0.0035999999999987153 ms
-var start = performance.now();
-var str = "abcdcba";
-var isPalindrome = str.split("").reverse().join("") === str;
-var end = performance.now();
-console.log("Execution time: ".concat(end - start, " ms"));
+const start = performance.now();
+const str = "abcdcba";
+const isPalindrome = str.split("").reverse().join("") === str;
+const end = performance.now();
+console.log(`Execution time: ${end - start} ms`);
 console.log(isPalindrome);

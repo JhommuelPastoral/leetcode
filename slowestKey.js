@@ -1,9 +1,10 @@
+"use strict";
 function slowestKey(releaseTimes, keysPressed) {
     var _a;
-    var maxDuration = releaseTimes[0];
-    var result = keysPressed[0];
-    for (var i = 1; i < releaseTimes.length; i++) {
-        var duration = releaseTimes[i] - ((_a = releaseTimes[i - 1]) !== null && _a !== void 0 ? _a : 0);
+    let maxDuration = releaseTimes[0];
+    let result = keysPressed[0];
+    for (let i = 1; i < releaseTimes.length; i++) {
+        const duration = releaseTimes[i] - ((_a = releaseTimes[i - 1]) !== null && _a !== void 0 ? _a : 0);
         if (duration > maxDuration || (duration === maxDuration && keysPressed[i] > result)) {
             maxDuration = duration;
             result = keysPressed[i];

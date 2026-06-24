@@ -1,19 +1,10 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+"use strict";
 function countDistinctIntegers(nums) {
-    var res = __spreadArray([], nums, true);
-    for (var _i = 0, nums_1 = nums; _i < nums_1.length; _i++) {
-        var num = nums_1[_i];
-        var reversed = 0;
+    const res = [...nums];
+    for (let num of nums) {
+        let reversed = 0;
         while (num > 0) {
-            var digit = num % 10;
+            const digit = num % 10;
             reversed = (reversed * 10) + digit;
             num = Math.floor(num / 10);
         }

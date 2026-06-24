@@ -1,3 +1,4 @@
+"use strict";
 function trafficSignal(timer) {
     if (timer === 0)
         return 'Green';

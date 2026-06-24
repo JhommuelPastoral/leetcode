@@ -1,7 +1,8 @@
+"use strict";
 function recoverOrder(order, friends) {
-    var res = [];
-    var friendSet = new Set(friends);
-    for (var i = 0; i < order.length; i++) {
+    let res = [];
+    const friendSet = new Set(friends);
+    for (let i = 0; i < order.length; i++) {
         if (friendSet.has(order[i]))
             res.push(order[i]);
     }

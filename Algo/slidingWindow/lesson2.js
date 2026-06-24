@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.arr = void 0;
 function maxProductSubArray(nums, k) {
-    var window = nums.slice(0, k).reduce(function (a, b) { return a * b; }, 1);
-    var max = window;
-    for (var i = k; i < nums.length; i++) {
+    let window = nums.slice(0, k).reduce((a, b) => a * b, 1);
+    let max = window;
+    for (let i = k; i < nums.length; i++) {
         window *= nums[i];
         window /= nums[i - k];
         max = Math.max(max, window);
@@ -15,35 +15,30 @@ exports.arr = [1, 4, 1, 6, -3, 3, -5, 2, 26];
 console.log(maxProductSubArray(exports.arr, 4));
 function hasSubtringAnagram(s, anagram) {
     var _a, _b, _c;
-    var mapAnagram = new Map();
-    var window = new Map();
-    for (var _i = 0, anagram_1 = anagram; _i < anagram_1.length; _i++) {
-        var ch = anagram_1[_i];
+    const mapAnagram = new Map();
+    const window = new Map();
+    for (const ch of anagram)
         mapAnagram.set(ch, ((_a = mapAnagram.get(ch)) !== null && _a !== void 0 ? _a : 0) + 1);
-    }
-    for (var i = 0; i < anagram.length; i++)
+    for (let i = 0; i < anagram.length; i++)
         window.set(s[i], ((_b = window.get(s[i])) !== null && _b !== void 0 ? _b : 0) + 1);
-    var isEqual = function () {
-        for (var _i = 0, _a = Array.from(mapAnagram); _i < _a.length; _i++) {
-            var _b = _a[_i], key = _b[0], value = _b[1];
+    const isEqual = () => {
+        for (const [key, value] of Array.from(mapAnagram)) {
             if (window.get(key) !== value) {
                 return false;
-                break;
             }
         }
         return true;
     };
     if (isEqual())
         return true;
-    for (var i = anagram.length; i < s.length; i++) {
+    for (let i = anagram.length; i < s.length; i++) {
         window.set(s[i], ((_c = window.get(s[i])) !== null && _c !== void 0 ? _c : 0) + 1);
-        var prev = s[i - anagram.length];
+        const prev = s[i - anagram.length];
         window.set(prev, window.get(prev) - 1);
         if (window.get(prev) === 0)
             window.delete(prev);
-        var isAnagram = true;
-        for (var _d = 0, _e = Array.from(mapAnagram); _d < _e.length; _d++) {
-            var _f = _e[_d], key = _f[0], value = _f[1];
+        let isAnagram = true;
+        for (const [key, value] of Array.from(mapAnagram)) {
             if (window.get(key) !== value) {
                 isAnagram = false;
                 break;

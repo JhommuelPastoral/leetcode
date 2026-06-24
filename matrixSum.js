@@ -1,11 +1,12 @@
+"use strict";
 function matrixSum(nums) {
-    var sum = 0;
-    for (var i = 0; i < nums[0].length; i++) {
-        var max = 0;
-        for (var j = 0; j < nums.length; j++) {
-            var row = nums[j];
-            var tempMax = Math.max.apply(Math, row);
-            for (var k = 0; k < row.length; k++) {
+    let sum = 0;
+    for (let i = 0; i < nums[0].length; i++) {
+        let max = 0;
+        for (let j = 0; j < nums.length; j++) {
+            const row = nums[j];
+            const tempMax = Math.max(...row);
+            for (let k = 0; k < row.length; k++) {
                 if (nums[j][k] === tempMax) {
                     nums[j][k] = -1;
                     break;

@@ -1,8 +1,8 @@
+"use strict";
 function sumAndMultiply(n) {
-    var noneZero = '';
-    var sum = 0;
-    for (var _i = 0, _a = n.toString(); _i < _a.length; _i++) {
-        var num = _a[_i];
+    let noneZero = '';
+    let sum = 0;
+    for (const num of n.toString()) {
         if (num !== '0') {
             noneZero += num.toString();
             sum += Number.parseInt(num);

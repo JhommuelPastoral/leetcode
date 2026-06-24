@@ -1,12 +1,13 @@
+"use strict";
 function longestContinuousSubstring(s) {
-    var alphabetMap = new Map();
-    var res = 0;
-    for (var i = 0; i < 26; i++)
+    const alphabetMap = new Map();
+    let res = 0;
+    for (let i = 0; i < 26; i++)
         alphabetMap.set(String.fromCharCode(97 + i), i);
-    for (var i = 0; i < s.length; i++) {
-        var counter = 0;
-        var index = alphabetMap.get(s[i]);
-        for (var j = i; j < s.length; j++) {
+    for (let i = 0; i < s.length; i++) {
+        let counter = 0;
+        let index = alphabetMap.get(s[i]);
+        for (let j = i; j < s.length; j++) {
             if (index === alphabetMap.get(s[j]))
                 counter++;
             else

@@ -1,5 +1,6 @@
+"use strict";
 function isAdjacentDiffAtMostTwo(s) {
-    for (var i = 0; i < s.length - 1; i++) {
+    for (let i = 0; i < s.length - 1; i++) {
         if (Math.abs(Number.parseInt(s[i]) - Number.parseInt(s[i + 1])) > 2)
             return false;
     }

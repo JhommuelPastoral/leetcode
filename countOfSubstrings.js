@@ -1,10 +1,11 @@
+"use strict";
 function countOfSubstrings(word, k) {
-    var vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-    var res = 0;
-    for (var i = 0; i < word.length; i++) {
-        var consonantCounter = 0;
-        var seenVowels = new Set();
-        for (var j = i; j < word.length; j++) {
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    let res = 0;
+    for (let i = 0; i < word.length; i++) {
+        let consonantCounter = 0;
+        const seenVowels = new Set();
+        for (let j = i; j < word.length; j++) {
             if (!vowels.has(word[j]))
                 consonantCounter++;
             else

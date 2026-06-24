@@ -1,28 +1,27 @@
+"use strict";
 function minSwaps(nums) {
-    var _a;
-    var res = 0;
-    var map = new Map();
-    for (var _i = 0, nums_1 = nums; _i < nums_1.length; _i++) {
-        var num = nums_1[_i];
-        var sum = 0;
-        var temp = num;
+    let res = 0;
+    const map = new Map();
+    for (const num of nums) {
+        let sum = 0;
+        let temp = num;
         while (temp > 0) {
             sum += temp % 10;
             temp = Math.floor(temp / 10);
         }
         map.set(num, sum);
     }
-    var sorted = Array.from(map.entries()).sort(function (a, b) { return a[1] - b[1] || a[0] - b[0]; });
-    var pos = new Map();
-    for (var i = 0; i < nums.length; i++) {
+    const sorted = Array.from(map.entries()).sort((a, b) => a[1] - b[1] || a[0] - b[0]);
+    const pos = new Map();
+    for (let i = 0; i < nums.length; i++) {
         pos.set(nums[i], i);
     }
-    for (var i = 0; i < nums.length; i++) {
-        var target = sorted[i][0];
+    for (let i = 0; i < nums.length; i++) {
+        const target = sorted[i][0];
         if (nums[i] === target)
             continue;
-        var j = pos.get(target);
-        _a = [nums[j], nums[i]], nums[i] = _a[0], nums[j] = _a[1];
+        const j = pos.get(target);
+        [nums[i], nums[j]] = [nums[j], nums[i]];
         pos.set(nums[j], j);
         pos.set(nums[i], i);
         res++;

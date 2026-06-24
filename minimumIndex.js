@@ -1,7 +1,8 @@
+"use strict";
 function minimumIndex(capacity, itemSize) {
-    var index = -1;
-    var min = Infinity;
-    for (var i = 0; i < capacity.length; i++) {
+    let index = -1;
+    let min = Infinity;
+    for (let i = 0; i < capacity.length; i++) {
         if (capacity[i] >= itemSize) {
             if (capacity[i] < min) {
                 index = i;

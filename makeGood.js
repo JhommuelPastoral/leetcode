@@ -1,6 +1,7 @@
+"use strict";
 function makeGood(s) {
-    var arrString = s.split('');
-    for (var i = 0; i < s.length - 1; i++) {
+    const arrString = s.split('');
+    for (let i = 0; i < s.length - 1; i++) {
         if (((s[i] === s[i].toLowerCase() && s[i + 1] === s[i + 1].toUpperCase()) ||
             (s[i] === s[i].toUpperCase() && s[i + 1] === s[i + 1].toLowerCase())) &&
             s[i].toLowerCase() === s[i + 1].toLowerCase()) {

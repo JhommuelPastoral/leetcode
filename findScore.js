@@ -1,15 +1,15 @@
+"use strict";
 function findScore(nums) {
-    var pairs = nums.map(function (num, idx) { return [num, idx]; });
-    pairs.sort(function (a, b) {
+    const pairs = nums.map((num, idx) => [num, idx]);
+    pairs.sort((a, b) => {
         if (a[0] !== b[0])
             return a[0] - b[0];
         return a[1] - b[1];
     });
     console.log(pairs);
-    var marked = new Array(nums.length).fill(false);
-    var score = 0;
-    for (var _i = 0, pairs_1 = pairs; _i < pairs_1.length; _i++) {
-        var _a = pairs_1[_i], value = _a[0], idx = _a[1];
+    const marked = new Array(nums.length).fill(false);
+    let score = 0;
+    for (const [value, idx] of pairs) {
         if (marked[idx])
             continue;
         score += value;

@@ -1,13 +1,11 @@
-var TreeNode = /** @class */ (function () {
-    function TreeNode(val, left, right) {
-        if (left === void 0) { left = null; }
-        if (right === void 0) { right = null; }
+"use strict";
+class TreeNode {
+    constructor(val, left = null, right = null) {
         this.val = val;
         this.left = left;
         this.right = right;
     }
-    return TreeNode;
-}());
+}
 function printTree(node) {
     if (!node)
         return;
@@ -18,7 +16,7 @@ function printTree(node) {
     printTree(node.left);
     printTree(node.right);
 }
-var root = new TreeNode(1);
+const root = new TreeNode(1);
 root.left = new TreeNode(2);
 root.right = new TreeNode(3);
 root.left.left = new TreeNode(4);

@@ -1,13 +1,14 @@
+"use strict";
 function minimumOperations(nums) {
-    var operation = 0;
+    let operation = 0;
     while (true) {
-        var x = Infinity;
-        for (var i = 0; i < nums.length; i++) {
+        let x = Infinity;
+        for (let i = 0; i < nums.length; i++) {
             if (nums[i] !== 0)
                 x = Math.min(nums[i], x);
         }
         if (x !== Infinity) {
-            for (var i = 0; i < nums.length; i++) {
+            for (let i = 0; i < nums.length; i++) {
                 if (nums[i] !== 0) {
                     nums[i] -= x;
                 }

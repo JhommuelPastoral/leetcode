@@ -1,7 +1,8 @@
+"use strict";
 function numPairsDivisibleBy60(time) {
-    var res = 0;
-    for (var i = 0; i < time.length - 1; i++) {
-        for (var j = i + 1; j < time.length; j++) {
+    let res = 0;
+    for (let i = 0; i < time.length - 1; i++) {
+        for (let j = i + 1; j < time.length; j++) {
             if ((time[i] + time[j]) % 60 === 0)
                 res++;
         }

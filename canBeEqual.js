@@ -1,7 +1,8 @@
+"use strict";
 function canBeEqual(target, arr) {
-    target.sort(function (a, b) { return a - b; });
-    arr.sort(function (a, b) { return a - b; });
-    for (var i = 0; i < target.length; i++) {
+    target.sort((a, b) => a - b);
+    arr.sort((a, b) => a - b);
+    for (let i = 0; i < target.length; i++) {
         if (target[i] !== arr[i])
             return false;
     }

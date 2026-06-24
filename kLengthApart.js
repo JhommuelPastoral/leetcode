@@ -1,9 +1,10 @@
+"use strict";
 function kLengthApart(nums, k) {
-    var i = 0;
+    let i = 0;
     while (i < nums.length) {
         if (nums[i] === 1) {
-            var temp = i + 1;
-            var count = 0;
+            let temp = i + 1;
+            let count = 0;
             while (temp < nums.length && nums[temp] !== 1) {
                 temp++;
                 count++;

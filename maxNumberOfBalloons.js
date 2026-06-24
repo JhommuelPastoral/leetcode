@@ -1,13 +1,13 @@
+"use strict";
 function maxNumberOfBalloons(text) {
-    var map = new Map([
+    const map = new Map([
         ['b', 0],
         ['a', 0],
         ['l', 0],
         ['o', 0],
         ['n', 0]
     ]);
-    for (var _i = 0, text_1 = text; _i < text_1.length; _i++) {
-        var char = text_1[_i];
+    for (const char of text) {
         if (map.has(char))
             map.set(char, map.get(char) + 1);
     }

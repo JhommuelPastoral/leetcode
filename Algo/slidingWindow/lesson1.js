@@ -1,8 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.arr = void 0;
 function maxSumSubArray(nums, k) {
-    var sum = 0;
-    for (var i = 0; i <= nums.length - k; i++) {
-        var temp = 0;
-        for (var j = i; j < i + k; j++) {
+    let sum = 0;
+    for (let i = 0; i <= nums.length - k; i++) {
+        let temp = 0;
+        for (let j = i; j < i + k; j++) {
             temp += nums[j];
         }
         if (temp > sum)
@@ -12,15 +15,16 @@ function maxSumSubArray(nums, k) {
 }
 ;
 function maxSumSubArrayOptimized(nums, k) {
-    var window = nums.slice(0, k).reduce(function (a, b) { return a + b; }, 0);
-    var max = window;
-    for (var i = k; i < nums.length; i++) {
+    let window = nums.slice(0, k).reduce((a, b) => a + b, 0);
+    let max = window;
+    for (let i = k; i < nums.length; i++) {
         window += nums[i];
         window -= nums[i - k];
         max = Math.max(max, window);
     }
     return max;
 }
-var arr = [1, 4, 1, 10, 25, 3, 5, 0, 26];
+const arr = [1, 4, 1, 10, 25, 3, 5, 0, 26];
+exports.arr = arr;
 console.log(maxSumSubArray(arr, 4));
 console.log(maxSumSubArrayOptimized(arr, 4));
