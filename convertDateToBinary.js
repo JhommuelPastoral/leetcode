@@ -1,6 +1,7 @@
+"use strict";
 function convertDateToBinary(date) {
-    var arr = date.split('-');
-    for (var i = 0; i < arr.length; i++) {
+    const arr = date.split('-');
+    for (let i = 0; i < arr.length; i++) {
         arr[i] = Number.parseInt(arr[i]).toString(2);
     }
     return arr.join('-');

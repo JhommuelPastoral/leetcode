@@ -1,6 +1,7 @@
+"use strict";
 function countGoodSubstrings(s) {
-    var res = 0;
-    for (var i = 0; i < s.length - 2; i++) {
+    let res = 0;
+    for (let i = 0; i < s.length - 2; i++) {
         if (s[i] === s[i + 1] || s[i] === s[i + 2] || s[i + 1] === s[i + 2])
             continue;
         else

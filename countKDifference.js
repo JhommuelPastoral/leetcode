@@ -1,7 +1,8 @@
+"use strict";
 function countKDifference(nums, k) {
-    var res = 0;
-    for (var i = 0; i < nums.length - 1; i++) {
-        for (var j = i + 1; j < nums.length; j++) {
+    let res = 0;
+    for (let i = 0; i < nums.length - 1; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
             if (Math.abs(nums[i] - nums[j]) === k)
                 res++;
         }

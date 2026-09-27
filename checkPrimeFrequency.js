@@ -9,10 +9,9 @@ function isPrime(n) {
     return true;
 }
 function checkPrimeFrequency(nums) {
-    var _a;
     const map = new Map();
     for (const num of nums)
-        map.set(num, ((_a = map.get(num)) !== null && _a !== void 0 ? _a : 0) + 1);
+        map.set(num, (map.get(num) ?? 0) + 1);
     for (const [key, value] of Array.from(map)) {
         if (isPrime(value))
             return true;

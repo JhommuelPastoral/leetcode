@@ -1,11 +1,10 @@
+"use strict";
 function maximumValue(strs) {
-    var max = 0;
-    for (var _i = 0, strs_1 = strs; _i < strs_1.length; _i++) {
-        var word = strs_1[_i];
-        var temp = '';
-        var isAllDigit = true;
-        for (var _a = 0, word_1 = word; _a < word_1.length; _a++) {
-            var char = word_1[_a];
+    let max = 0;
+    for (const word of strs) {
+        let temp = '';
+        let isAllDigit = true;
+        for (const char of word) {
             if (Number.isInteger(Number.parseInt(char)))
                 temp += char;
             else {

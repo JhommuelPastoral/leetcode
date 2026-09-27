@@ -1,13 +1,14 @@
+"use strict";
 function backspaceCompare(s, t) {
-    var arrS = [];
-    var arrT = [];
-    for (var i = 0; i < s.length; i++) {
+    let arrS = [];
+    let arrT = [];
+    for (let i = 0; i < s.length; i++) {
         if (s[i] !== '#')
             arrS.push(s[i]);
         else
             arrS.pop();
     }
-    for (var i = 0; i < t.length; i++) {
+    for (let i = 0; i < t.length; i++) {
         if (t[i] !== '#')
             arrT.push(t[i]);
         else

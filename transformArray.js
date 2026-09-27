@@ -1,8 +1,9 @@
+"use strict";
 function transformArray(nums) {
-    for (var i = 0; i < nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         nums[i] = nums[i] % 2 === 0 ? 0 : 1;
     }
-    return nums.sort(function (a, b) { return a - b; });
+    return nums.sort((a, b) => a - b);
 }
 ;
 console.log(transformArray([3, 1, 2, 4]));

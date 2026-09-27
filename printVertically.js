@@ -1,6 +1,5 @@
 "use strict";
 function printVertically(s) {
-    var _a;
     const arr = [];
     const res = [];
     let maxCol = 0;
@@ -11,7 +10,7 @@ function printVertically(s) {
     for (let i = 0; i < maxCol; i++) {
         let temp = '';
         for (let j = 0; j < arr.length; j++) {
-            const char = (_a = arr[j][i]) !== null && _a !== void 0 ? _a : " ";
+            const char = arr[j][i] ?? " ";
             temp += char;
         }
         res.push(temp.trimEnd());

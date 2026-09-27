@@ -1,8 +1,9 @@
+"use strict";
 function checkGoodInteger(n) {
-    var digitSum = 0;
-    var squareSum = 0;
+    let digitSum = 0;
+    let squareSum = 0;
     while (n > 0) {
-        var digit = n % 10;
+        const digit = n % 10;
         n = Math.floor(n / 10);
         digitSum += digit;
         squareSum += Math.pow(digit, 2);

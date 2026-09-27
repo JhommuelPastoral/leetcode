@@ -1,16 +1,16 @@
+"use strict";
 function largestWordCount(messages, senders) {
-    var _a;
-    var map = new Map();
-    var senderMap = new Map();
-    var res = '';
-    var max = 0;
-    for (var i = 0; i < messages.length; i++) {
+    const map = new Map();
+    const senderMap = new Map();
+    let res = '';
+    let max = 0;
+    for (let i = 0; i < messages.length; i++) {
         map.set(i, messages[i].split(' ').length);
     }
-    for (var i = 0; i < senders.length; i++) {
-        var words = map.get(i);
-        senderMap.set(senders[i], ((_a = senderMap.get(senders[i])) !== null && _a !== void 0 ? _a : 0) + words);
-        var total = senderMap.get(senders[i]);
+    for (let i = 0; i < senders.length; i++) {
+        const words = map.get(i);
+        senderMap.set(senders[i], (senderMap.get(senders[i]) ?? 0) + words);
+        const total = senderMap.get(senders[i]);
         if (total > max || (total === max && senders[i] > res)) {
             max = total;
             res = senders[i];

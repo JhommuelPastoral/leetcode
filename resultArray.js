@@ -1,22 +1,14 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+"use strict";
 function resultArray(nums) {
-    var arr1 = [nums[0]];
-    var arr2 = [nums[1]];
-    for (var i = 2; i < nums.length; i++) {
+    const arr1 = [nums[0]];
+    const arr2 = [nums[1]];
+    for (let i = 2; i < nums.length; i++) {
         if (arr1[arr1.length - 1] > arr2[arr2.length - 1])
             arr1.push(nums[i]);
         else
             arr2.push(nums[i]);
     }
-    return __spreadArray(__spreadArray([], arr1, true), arr2, true);
+    return [...arr1, ...arr2];
 }
 ;
 console.log(resultArray([1, 2, 3, 4, 5, 6])); // Output: [1,3,5,2,4,6]

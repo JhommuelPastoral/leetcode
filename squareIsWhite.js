@@ -1,5 +1,6 @@
+"use strict";
 function squareIsWhite(coordinates) {
-    var isWhite = coordinates.charCodeAt(0) % 2 === 0;
+    const isWhite = coordinates.charCodeAt(0) % 2 === 0;
     return isWhite ? Number(coordinates[1]) % 2 === 1 : Number(coordinates[1]) % 2 === 0;
 }
 ;

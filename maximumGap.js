@@ -1,7 +1,8 @@
+"use strict";
 function maximumGap(nums) {
-    var max = 0;
-    nums.sort(function (a, b) { return a - b; });
-    for (var i = 0; i < nums.length - 1; i++) {
+    let max = 0;
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < nums.length - 1; i++) {
         max = Math.max(max, Math.abs(nums[i] - nums[i + 1]));
     }
     return max;

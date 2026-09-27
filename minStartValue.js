@@ -1,10 +1,10 @@
+"use strict";
 function minStartValue(nums) {
-    var min = Infinity;
-    var startValue = 1;
+    let min = Infinity;
+    let startValue = 1;
     while (min === Infinity) {
-        var sum = startValue;
-        for (var _i = 0, nums_1 = nums; _i < nums_1.length; _i++) {
-            var num = nums_1[_i];
+        let sum = startValue;
+        for (const num of nums) {
             sum += num;
             if (sum < 1)
                 break;

@@ -1,11 +1,11 @@
+"use strict";
 function longestSquareStreak(nums) {
     nums.sort();
-    var set = new Set(nums);
-    var max = -Infinity;
-    for (var _i = 0, nums_1 = nums; _i < nums_1.length; _i++) {
-        var num = nums_1[_i];
-        var counter = 1;
-        var square = num * num;
+    const set = new Set(nums);
+    let max = -Infinity;
+    for (const num of nums) {
+        let counter = 1;
+        let square = num * num;
         while (set.has(square)) {
             counter++;
             square = square * square;

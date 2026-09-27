@@ -14,13 +14,12 @@ function maxProductSubArray(nums, k) {
 exports.arr = [1, 4, 1, 6, -3, 3, -5, 2, 26];
 console.log(maxProductSubArray(exports.arr, 4));
 function hasSubtringAnagram(s, anagram) {
-    var _a, _b, _c;
     const mapAnagram = new Map();
     const window = new Map();
     for (const ch of anagram)
-        mapAnagram.set(ch, ((_a = mapAnagram.get(ch)) !== null && _a !== void 0 ? _a : 0) + 1);
+        mapAnagram.set(ch, (mapAnagram.get(ch) ?? 0) + 1);
     for (let i = 0; i < anagram.length; i++)
-        window.set(s[i], ((_b = window.get(s[i])) !== null && _b !== void 0 ? _b : 0) + 1);
+        window.set(s[i], (window.get(s[i]) ?? 0) + 1);
     const isEqual = () => {
         for (const [key, value] of Array.from(mapAnagram)) {
             if (window.get(key) !== value) {
@@ -32,7 +31,7 @@ function hasSubtringAnagram(s, anagram) {
     if (isEqual())
         return true;
     for (let i = anagram.length; i < s.length; i++) {
-        window.set(s[i], ((_c = window.get(s[i])) !== null && _c !== void 0 ? _c : 0) + 1);
+        window.set(s[i], (window.get(s[i]) ?? 0) + 1);
         const prev = s[i - anagram.length];
         window.set(prev, window.get(prev) - 1);
         if (window.get(prev) === 0)

@@ -1,10 +1,11 @@
+"use strict";
 function minimumDistance(nums) {
-    var min = Infinity;
-    for (var i = 0; i < nums.length; i++) {
-        for (var j = 0; j < nums.length; j++) {
+    let min = Infinity;
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = 0; j < nums.length; j++) {
             if (i === j || nums[i] !== nums[j])
                 continue;
-            for (var k = 0; k < nums.length; k++) {
+            for (let k = 0; k < nums.length; k++) {
                 if (i === k || j === k || nums[j] !== nums[k])
                     continue;
                 if (nums[j] === nums[k])

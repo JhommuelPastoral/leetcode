@@ -1,11 +1,11 @@
+"use strict";
 function validateStackSequences(pushed, popped) {
-    var stack = [];
-    for (var _i = 0, pushed_1 = pushed; _i < pushed_1.length; _i++) {
-        var val = pushed_1[_i];
+    const stack = [];
+    for (const val of pushed) {
         stack.push(val);
         while (true) {
-            var pop = popped[0];
-            var stackVal = stack[stack.length - 1];
+            const pop = popped[0];
+            const stackVal = stack[stack.length - 1];
             if (stackVal !== pop || stack.length === 0)
                 break;
             else {

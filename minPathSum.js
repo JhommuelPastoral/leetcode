@@ -1,3 +1,4 @@
+"use strict";
 function backTrack(grid, row, col, sum, res) {
     sum += grid[row][col];
     if (row === grid.length - 1 && col === grid[0].length - 1) {
@@ -10,8 +11,8 @@ function backTrack(grid, row, col, sum, res) {
         }
         return res;
     }
-    var hasDownSide = row < grid.length - 1;
-    var hasRightSide = col < grid[0].length - 1;
+    const hasDownSide = row < grid.length - 1;
+    const hasRightSide = col < grid[0].length - 1;
     if (hasDownSide) {
         backTrack(grid, row + 1, col, sum, res);
     }
@@ -21,7 +22,7 @@ function backTrack(grid, row, col, sum, res) {
     return res;
 }
 function minPathSum(grid) {
-    var res = backTrack(grid, 0, 0, 0, []);
+    const res = backTrack(grid, 0, 0, 0, []);
     return res[0];
 }
 ;

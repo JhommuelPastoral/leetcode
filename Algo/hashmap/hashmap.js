@@ -11,10 +11,9 @@ function containDuplicate(nums) {
 console.log(containDuplicate([1, 2, 3, 1]));
 console.log(containDuplicate([1, 2, 3, 4]));
 function countChar(str) {
-    var _a;
     const map = new Map();
     for (const char of str) {
-        map.set(char, ((_a = map.get(char)) !== null && _a !== void 0 ? _a : 0) + 1);
+        map.set(char, (map.get(char) ?? 0) + 1);
     }
     return map;
 }

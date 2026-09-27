@@ -1,12 +1,13 @@
+"use strict";
 function constructTransformedArray(nums) {
-    var n = nums.length;
-    var res = [];
-    for (var i = 0; i < n; i++) {
+    const n = nums.length;
+    const res = [];
+    for (let i = 0; i < n; i++) {
         if (nums[i] === 0) {
             res.push(0);
         }
         else {
-            var index = ((i + nums[i]) % n + n) % n;
+            const index = ((i + nums[i]) % n + n) % n;
             res.push(nums[index]);
         }
     }

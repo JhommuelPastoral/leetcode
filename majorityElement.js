@@ -1,12 +1,11 @@
 "use strict";
 function majorityElement(nums) {
-    var _a;
     const size = nums.length / 3;
     let res = [];
     const map = new Map();
     const seen = new Set();
     for (const num of nums) {
-        map.set(num, ((_a = map.get(num)) !== null && _a !== void 0 ? _a : 0) + 1);
+        map.set(num, (map.get(num) ?? 0) + 1);
         if (map.get(num) > size && !seen.has(num)) {
             res.push(num);
             seen.add(num);

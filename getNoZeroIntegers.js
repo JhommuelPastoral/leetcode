@@ -1,7 +1,8 @@
+"use strict";
 function getNoZeroIntegers(n) {
-    var sub = 1;
+    let sub = 1;
     while (true) {
-        var sum = n - sub;
+        const sum = n - sub;
         if (!sum.toString().includes('0') && !sub.toString().includes('0'))
             return [sub, sum];
         sub++;

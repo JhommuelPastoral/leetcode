@@ -1,21 +1,22 @@
+"use strict";
 function backTrack(grid, row, col, res, path, sum) {
-    if (!grid[row][col] || path.has("".concat(row, "-").concat(col))) {
+    if (!grid[row][col] || path.has(`${row}-${col}`)) {
         if (!res.length)
             res.push(sum);
         else if (sum > res[0])
             res[0] = sum;
         return res;
     }
-    path.add("".concat(row, "-").concat(col));
+    path.add(`${row}-${col}`);
     sum += grid[row][col];
-    var canUp = row - 1 >= 0 &&
-        !path.has("".concat(row - 1, "-").concat(col));
-    var canDown = row + 1 < grid.length &&
-        !path.has("".concat(row + 1, "-").concat(col));
-    var canRight = col + 1 < grid[row].length &&
-        !path.has("".concat(row, "-").concat(col + 1));
-    var canLeft = col - 1 >= 0 &&
-        !path.has("".concat(row, "-").concat(col - 1));
+    const canUp = row - 1 >= 0 &&
+        !path.has(`${row - 1}-${col}`);
+    const canDown = row + 1 < grid.length &&
+        !path.has(`${row + 1}-${col}`);
+    const canRight = col + 1 < grid[row].length &&
+        !path.has(`${row}-${col + 1}`);
+    const canLeft = col - 1 >= 0 &&
+        !path.has(`${row}-${col - 1}`);
     if (canUp)
         backTrack(grid, row - 1, col, res, path, sum);
     if (canDown)
@@ -25,7 +26,7 @@ function backTrack(grid, row, col, res, path, sum) {
     if (canLeft)
         backTrack(grid, row, col - 1, res, path, sum);
     // Backtrack
-    path.delete("".concat(row, "-").concat(col));
+    path.delete(`${row}-${col}`);
     // Important: if there was nowhere to go,
     // this current sum is the maximum for this path.
     if (!canUp && !canDown && !canRight && !canLeft) {
@@ -37,9 +38,9 @@ function backTrack(grid, row, col, res, path, sum) {
     return res;
 }
 function getMaximumGold(grid) {
-    var max = -Infinity;
-    for (var i = 0; i < grid.length; i++) {
-        for (var j = 0; j < grid[i].length; j++) {
+    let max = -Infinity;
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
             if (!grid[i][j])
                 continue;
             max = Math.max(max, backTrack(grid, i, j, [], new Set(), 0)[0]);

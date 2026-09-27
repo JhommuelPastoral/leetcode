@@ -1,14 +1,14 @@
+"use strict";
 function discountPrices(sentence, discount) {
-    var result = [];
-    for (var _i = 0, _a = sentence.split(" "); _i < _a.length; _i++) {
-        var word = _a[_i];
+    const result = [];
+    for (const word of sentence.split(" ")) {
         if (word[0] !== "$") {
             result.push(word);
             continue;
         }
-        var digits = "";
-        var valid = true;
-        for (var i = 1; i < word.length; i++) {
+        let digits = "";
+        let valid = true;
+        for (let i = 1; i < word.length; i++) {
             if (!Number.isInteger(Number(word[i]))) {
                 valid = false;
                 break;
@@ -23,9 +23,9 @@ function discountPrices(sentence, discount) {
             result.push("$");
             continue;
         }
-        var price = Number(digits);
-        var discounted = price * (1 - discount / 100);
-        result.push("$".concat(discounted.toFixed(2)));
+        const price = Number(digits);
+        const discounted = price * (1 - discount / 100);
+        result.push(`$${discounted.toFixed(2)}`);
     }
     return result.join(" ");
 }

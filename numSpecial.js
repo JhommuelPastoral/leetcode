@@ -1,12 +1,13 @@
+"use strict";
 function numSpecial(mat) {
-    var res = 0;
-    for (var row = 0; row < mat.length; row++) {
-        for (var col = 0; col < mat[row].length; col++) {
+    let res = 0;
+    for (let row = 0; row < mat.length; row++) {
+        for (let col = 0; col < mat[row].length; col++) {
             if (mat[row][col] === 1) {
                 // Scan Entire Column
-                var isColGood = true;
-                var isRowGood = true;
-                for (var i = 0; i < mat.length; i++) {
+                let isColGood = true;
+                let isRowGood = true;
+                for (let i = 0; i < mat.length; i++) {
                     if (mat[i][col] && i !== row) {
                         isColGood = false;
                         break;
@@ -15,7 +16,7 @@ function numSpecial(mat) {
                 if (!isColGood)
                     break;
                 // Scan Entire Row
-                for (var i = 0; i < mat[row].length; i++) {
+                for (let i = 0; i < mat[row].length; i++) {
                     if (mat[row][i] && i !== col) {
                         isRowGood = false;
                         break;

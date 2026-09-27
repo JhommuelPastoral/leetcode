@@ -1,8 +1,9 @@
+"use strict";
 function maxRotateFunction(nums) {
-    var max = -Infinity;
-    for (var i = 0; i < nums.length; i++) {
-        var temp = 0;
-        for (var j = 0; j < nums.length; j++) {
+    let max = -Infinity;
+    for (let i = 0; i < nums.length; i++) {
+        let temp = 0;
+        for (let j = 0; j < nums.length; j++) {
             temp += (j * nums.at(j - i));
         }
         max = Math.max(max, temp);

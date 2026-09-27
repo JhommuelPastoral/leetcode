@@ -1,18 +1,19 @@
+"use strict";
 function luckyNumbers(matrix) {
-    var luckyNumber = [];
-    var minRow = [];
-    var maxCol = [];
-    for (var row = 0; row < matrix.length; row++)
-        minRow.push(Math.min.apply(Math, matrix[row]));
-    for (var col = 0; col < matrix[0].length; col++) {
-        var max = 0;
-        for (var row = 0; row < matrix.length; row++) {
+    const luckyNumber = [];
+    const minRow = [];
+    const maxCol = [];
+    for (let row = 0; row < matrix.length; row++)
+        minRow.push(Math.min(...matrix[row]));
+    for (let col = 0; col < matrix[0].length; col++) {
+        let max = 0;
+        for (let row = 0; row < matrix.length; row++) {
             max = Math.max(max, matrix[row][col]);
         }
         maxCol.push(max);
     }
-    for (var i = 0; i < minRow.length; i++) {
-        for (var j = 0; j < maxCol.length; j++) {
+    for (let i = 0; i < minRow.length; i++) {
+        for (let j = 0; j < maxCol.length; j++) {
             if (minRow[i] === maxCol[j])
                 luckyNumber.push(minRow[i]);
         }

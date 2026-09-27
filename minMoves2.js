@@ -1,12 +1,13 @@
+"use strict";
 function minMoves2(nums) {
-    var seen = new Set();
-    var min = Infinity;
-    for (var i = 0; i < nums.length; i++) {
-        var moves = 0;
+    const seen = new Set();
+    let min = Infinity;
+    for (let i = 0; i < nums.length; i++) {
+        let moves = 0;
         if (seen.has(nums[i]))
             continue;
         seen.add(nums[i]);
-        for (var j = 0; j < nums.length; j++) {
+        for (let j = 0; j < nums.length; j++) {
             if (j === i)
                 continue;
             moves += Math.abs(nums[i] - nums[j]);

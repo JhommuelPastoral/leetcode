@@ -1,7 +1,7 @@
+"use strict";
 function numOfStrings(patterns, word) {
-    var res = 0;
-    for (var _i = 0, patterns_1 = patterns; _i < patterns_1.length; _i++) {
-        var pattern = patterns_1[_i];
+    let res = 0;
+    for (const pattern of patterns) {
         if (word.includes(pattern))
             res++;
     }

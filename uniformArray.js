@@ -1,13 +1,14 @@
+"use strict";
 function uniformArray(nums1) {
-    var isAllEven = nums1.every(function (num) { return num % 2 === 0; });
-    var isAllOdd = nums1.every(function (num) { return num % 2 === 1; });
+    const isAllEven = nums1.every((num) => num % 2 === 0);
+    const isAllOdd = nums1.every((num) => num % 2 === 1);
     if (isAllEven || isAllOdd)
         return true;
-    for (var i = 0; i < nums1.length; i++) {
-        var isOdd = false;
+    for (let i = 0; i < nums1.length; i++) {
+        let isOdd = false;
         if (nums1[i] % 2 === 1)
             continue;
-        for (var j = 0; j < nums1.length; j++) {
+        for (let j = 0; j < nums1.length; j++) {
             if (i === j)
                 continue;
             if (Math.abs((nums1[i] - nums1[j]) % 2) === 1) {

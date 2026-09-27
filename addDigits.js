@@ -1,8 +1,9 @@
+"use strict";
 function addDigits(num) {
     while (num >= 10) {
-        var temp = 0;
+        let temp = 0;
         while (num > 0) {
-            var digit = num % 10;
+            const digit = num % 10;
             num = Math.floor(num / 10);
             temp += digit;
         }

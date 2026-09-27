@@ -1,7 +1,7 @@
+"use strict";
 function arraySign(nums) {
-    var negatives = 0;
-    for (var _i = 0, nums_1 = nums; _i < nums_1.length; _i++) {
-        var num = nums_1[_i];
+    let negatives = 0;
+    for (const num of nums) {
         if (num === 0)
             return 0;
         if (num < 0)

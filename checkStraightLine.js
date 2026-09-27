@@ -1,10 +1,11 @@
+"use strict";
 function checkStraightLine(coordinates) {
-    var _a = coordinates[0], x0 = _a[0], y0 = _a[1];
-    var _b = coordinates[1], x1 = _b[0], y1 = _b[1];
-    var dx = x1 - x0;
-    var dy = y1 - y0;
-    for (var i = 2; i < coordinates.length; i++) {
-        var _c = coordinates[i], x = _c[0], y = _c[1];
+    const [x0, y0] = coordinates[0];
+    const [x1, y1] = coordinates[1];
+    const dx = x1 - x0;
+    const dy = y1 - y0;
+    for (let i = 2; i < coordinates.length; i++) {
+        const [x, y] = coordinates[i];
         if ((x - x0) * dy !== (y - y0) * dx) {
             return false;
         }

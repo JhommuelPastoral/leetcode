@@ -1,7 +1,8 @@
+"use strict";
 function isPerfectSquare(num) {
-    var i = 0;
+    let i = 0;
     while (true) {
-        var sum = i * i;
+        const sum = i * i;
         if (sum === num)
             return true;
         if (sum > num)

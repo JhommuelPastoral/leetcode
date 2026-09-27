@@ -1,9 +1,10 @@
+"use strict";
 function minLength(s) {
-    var res = '';
+    let res = '';
     while (true) {
-        var hasSubstring = false;
-        var temp = '';
-        for (var i = 0; i < s.length; i++) {
+        let hasSubstring = false;
+        let temp = '';
+        for (let i = 0; i < s.length; i++) {
             if ((s[i] === 'A' && s[i + 1] === 'B') || (s[i] === 'C' && s[i + 1] === 'D')) {
                 i++;
                 hasSubstring = true;

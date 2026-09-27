@@ -1,6 +1,7 @@
+"use strict";
 function findWordsContaining(words, x) {
-    var result = [];
-    for (var i = 0; i < words.length; i++) {
+    const result = [];
+    for (let i = 0; i < words.length; i++) {
         if (words[i].includes(x))
             result.push(i);
     }

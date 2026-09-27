@@ -1,8 +1,9 @@
+"use strict";
 function replaceDigits(s) {
-    var res = '';
-    for (var i = 0; i < s.length; i += 2) {
+    let res = '';
+    for (let i = 0; i < s.length; i += 2) {
         if (s[i] && Number.isInteger(Number.parseInt(s[i + 1]))) {
-            var str = s[i] + String.fromCharCode(s.charCodeAt(i) + Number.parseInt(s[i + 1]));
+            const str = s[i] + String.fromCharCode(s.charCodeAt(i) + Number.parseInt(s[i + 1]));
             res += str;
         }
         else

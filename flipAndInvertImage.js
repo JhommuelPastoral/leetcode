@@ -1,8 +1,9 @@
+"use strict";
 function flipAndInvertImage(image) {
-    var res = [];
-    for (var i = 0; i < image.length; i++) {
-        var reverse = [];
-        for (var j = image[i].length - 1; j >= 0; j--) {
+    const res = [];
+    for (let i = 0; i < image.length; i++) {
+        const reverse = [];
+        for (let j = image[i].length - 1; j >= 0; j--) {
             reverse.push(image[i][j] === 1 ? 0 : 1);
         }
         res.push(reverse);

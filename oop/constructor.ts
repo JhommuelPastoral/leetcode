@@ -45,14 +45,26 @@ class Warrior extends Hero {
   attack(target: Hero) {
     const damage = this.attackDamage - target.defense;
     target.health -= damage > 0 ? damage : 0;
-    console.log(`${this.name} attacks ${target.name} for ${damage > 0 ? damage : 0} damage!`);
   }
 }
 
-const warrior1 = new Warrior("Warrior 1");
-const warrior2 = new Warrior("Warrior 2");
+class Mage extends Hero {
+  constructor(name: string) {
+    // name , health, mana, attackDamage, defense, speed, attackSpeed
+    super(name, 100, 200, 10, 5, 7, 1.5);
+  }
 
-warrior1.attack(warrior2);
+  attack(target: Hero) {
+    const damage = this.attackDamage - target.defense;
+    target.health -= damage > 0 ? damage : 0;
+  }
+}
+
+const warrior = new Warrior("Conan");
+const enemyMage = new Mage("Gandalf");
+
+console.log(`${warrior.name} attacks ${enemyMage.name}`);
+warrior.attack(enemyMage);
+console.log(`${enemyMage.name} health: ${enemyMage.getHealth()}`);
 
 
-console.log(`${warrior2.name} has ${warrior2.getHealth()} health left.`);

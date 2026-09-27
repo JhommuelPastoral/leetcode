@@ -1,7 +1,8 @@
+"use strict";
 function calculateScore(instructions, values) {
-    var visit = new Set();
-    var score = 0;
-    var index = 0;
+    const visit = new Set();
+    let score = 0;
+    let index = 0;
     while (true) {
         if (index < 0 || index >= instructions.length || visit.has(index))
             break;

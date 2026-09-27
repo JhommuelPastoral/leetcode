@@ -1,9 +1,10 @@
+"use strict";
 function minimumAverage(nums) {
-    nums.sort(function (a, b) { return a - b; });
-    var minAvg = Infinity;
+    nums.sort((a, b) => a - b);
+    let minAvg = Infinity;
     while (nums.length > 0) {
-        var min = nums.shift();
-        var max = nums.pop();
+        const min = nums.shift();
+        const max = nums.pop();
         minAvg = Math.min(minAvg, (min + max) / 2);
     }
     return minAvg;

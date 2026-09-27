@@ -1,14 +1,14 @@
+"use strict";
 function toggleLightBulbs(bulbs) {
-    var set = new Set();
-    for (var _i = 0, bulbs_1 = bulbs; _i < bulbs_1.length; _i++) {
-        var bulb = bulbs_1[_i];
+    const set = new Set();
+    for (const bulb of bulbs) {
         if (!set.has(bulb))
             set.add(bulb);
         else {
             set.delete(bulb);
         }
     }
-    return Array.from(set.values()).sort(function (a, b) { return a - b; });
+    return Array.from(set.values()).sort((a, b) => a - b);
 }
 ;
 console.log(toggleLightBulbs([1, 2, 3, 2, 1])); // Output: [3]

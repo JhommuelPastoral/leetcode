@@ -1,15 +1,7 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+"use strict";
 function backTrack(nums, res, subset, index) {
     if (index === nums.length) {
-        res.push(__spreadArray([], subset, true));
+        res.push([...subset]);
         return res;
     }
     subset.push(nums[index]);
@@ -19,15 +11,13 @@ function backTrack(nums, res, subset, index) {
     return res;
 }
 function subsetXORSum(nums) {
-    var subsets = backTrack(nums, [], [], 0);
-    var sum = 0;
-    for (var _i = 0, subsets_1 = subsets; _i < subsets_1.length; _i++) {
-        var subset = subsets_1[_i];
+    const subsets = backTrack(nums, [], [], 0);
+    let sum = 0;
+    for (const subset of subsets) {
         if (subset.length === 0)
             continue;
-        var sumOfXOR = 0;
-        for (var _a = 0, subset_1 = subset; _a < subset_1.length; _a++) {
-            var num = subset_1[_a];
+        let sumOfXOR = 0;
+        for (const num of subset) {
             sumOfXOR ^= num;
         }
         sum += sumOfXOR;

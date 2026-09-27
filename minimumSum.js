@@ -1,10 +1,11 @@
+"use strict";
 function minimumSum(nums) {
-    var sum = Infinity;
-    for (var i = 0; i < nums.length - 2; i++) {
-        for (var j = i + 1; j < nums.length - 1; j++) {
+    let sum = Infinity;
+    for (let i = 0; i < nums.length - 2; i++) {
+        for (let j = i + 1; j < nums.length - 1; j++) {
             if (nums[i] >= nums[j])
                 continue;
-            for (var k = j + 1; k < nums.length; k++) {
+            for (let k = j + 1; k < nums.length; k++) {
                 if (nums[k] >= nums[j])
                     continue;
                 sum = Math.min(sum, nums[i] + nums[j] + nums[k]);

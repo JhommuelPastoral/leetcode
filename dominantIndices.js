@@ -1,7 +1,8 @@
+"use strict";
 function dominantIndices(nums) {
-    var res = 0;
-    var sum = nums.reduce(function (acc, curr) { return acc + curr; }, 0) - nums[0];
-    for (var i = 0; i < nums.length - 1; i++) {
+    let res = 0;
+    let sum = nums.reduce((acc, curr) => acc + curr, 0) - nums[0];
+    for (let i = 0; i < nums.length - 1; i++) {
         if (nums[i] > (sum / (nums.length - 1 - i)))
             res++;
         sum -= nums[i + 1];

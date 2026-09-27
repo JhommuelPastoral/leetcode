@@ -41,11 +41,23 @@ var Warrior = /** @class */ (function (_super) {
     Warrior.prototype.attack = function (target) {
         var damage = this.attackDamage - target.defense;
         target.health -= damage > 0 ? damage : 0;
-        console.log("".concat(this.name, " attacks ").concat(target.name, " for ").concat(damage > 0 ? damage : 0, " damage!"));
     };
     return Warrior;
 }(Hero));
-var warrior1 = new Warrior("Warrior 1");
-var warrior2 = new Warrior("Warrior 2");
-warrior1.attack(warrior2);
-console.log("".concat(warrior2.name, " has ").concat(warrior2.getHealth(), " health left."));
+var Mage = /** @class */ (function (_super) {
+    __extends(Mage, _super);
+    function Mage(name) {
+        // name , health, mana, attackDamage, defense, speed, attackSpeed
+        return _super.call(this, name, 100, 200, 10, 5, 7, 1.5) || this;
+    }
+    Mage.prototype.attack = function (target) {
+        var damage = this.attackDamage - target.defense;
+        target.health -= damage > 0 ? damage : 0;
+    };
+    return Mage;
+}(Hero));
+var warrior = new Warrior("Conan");
+var enemyMage = new Mage("Gandalf");
+console.log("".concat(warrior.name, " attacks ").concat(enemyMage.name));
+warrior.attack(enemyMage);
+console.log("".concat(enemyMage.name, " health: ").concat(enemyMage.getHealth()));

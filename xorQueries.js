@@ -1,8 +1,8 @@
+"use strict";
 function xorQueries(arr, queries) {
-    var res = [];
-    for (var _i = 0, queries_1 = queries; _i < queries_1.length; _i++) {
-        var _a = queries_1[_i], left = _a[0], right = _a[1];
-        var sum = 0;
+    const res = [];
+    for (let [left, right] of queries) {
+        let sum = 0;
         while (left <= right) {
             sum ^= arr[left];
             left++;

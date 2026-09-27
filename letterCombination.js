@@ -1,17 +1,17 @@
+"use strict";
 function backTrack(digits, curStr, index, res, s) {
     if (curStr.length === s.length) {
         res.push(curStr);
         return res;
     }
-    for (var _i = 0, _a = digits.get(s[index]); _i < _a.length; _i++) {
-        var char = _a[_i];
+    for (const char of digits.get(s[index])) {
         backTrack(digits, curStr + char, index + 1, res, s);
     }
     return res;
 }
 function letterCombination(digits) {
-    var res = [];
-    var digitsMap = new Map([
+    const res = [];
+    const digitsMap = new Map([
         ['2', 'abc'],
         ['3', 'def'],
         ['4', 'ghi'],

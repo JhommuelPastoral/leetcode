@@ -1,3 +1,4 @@
+"use strict";
 function backTrack(grid, health, row, col, path) {
     // Out of bounds
     if (row < 0 || row >= grid.length)
@@ -5,7 +6,7 @@ function backTrack(grid, health, row, col, path) {
     if (col < 0 || col >= grid[0].length)
         return false;
     // Already visited
-    if (path.has("".concat(row, ",").concat(col)))
+    if (path.has(`${row},${col}`))
         return false;
     // Lose health if current cell is unsafe (1)
     health -= grid[row][col];
@@ -15,16 +16,16 @@ function backTrack(grid, health, row, col, path) {
     // Reached destination
     if (row === grid.length - 1 && col === grid[0].length - 1)
         return true;
-    path.add("".concat(row, ",").concat(col));
-    var isSafe = backTrack(grid, health, row + 1, col, path) || // DOWN
+    path.add(`${row},${col}`);
+    const isSafe = backTrack(grid, health, row + 1, col, path) || // DOWN
         backTrack(grid, health, row - 1, col, path) || // UP
         backTrack(grid, health, row, col + 1, path) || // RIGHT
         backTrack(grid, health, row, col - 1, path); // LEFT
-    path.delete("".concat(row, ",").concat(col));
+    path.delete(`${row},${col}`);
     return isSafe;
 }
 function findSafeWalk(grid, health) {
-    var path = new Set();
+    const path = new Set();
     return backTrack(grid, health, 0, 0, path);
 }
 ;

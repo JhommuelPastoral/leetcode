@@ -1,75 +1,59 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Person = /** @class */ (function () {
-    function Person(name, age) {
-        this.secret = "This is a secret";
+"use strict";
+class Person {
+    name;
+    age;
+    secret = "This is a secret";
+    constructor(name, age) {
         this.name = name;
         this.age = age;
     }
-    Person.prototype.getName = function () {
-        return "Your name is ".concat(this.name);
-    };
-    Person.prototype.getSecret = function () {
-        return this.secret;
-    };
-    Person.prototype.updateSecret = function (newSecret) {
-        this.secret = newSecret;
-    };
-    return Person;
-}());
-var Employee = /** @class */ (function (_super) {
-    __extends(Employee, _super);
-    function Employee(name, age, employeeId) {
-        var _this = _super.call(this, name, age) || this;
-        _this.employeeId = employeeId;
-        return _this;
+    getName() {
+        return `Your name is ${this.name}`;
     }
-    return Employee;
-}(Person));
-var BankAccount = /** @class */ (function () {
-    function BankAccount(accountNumber, balance) {
+    getSecret() {
+        return this.secret;
+    }
+    updateSecret(newSecret) {
+        this.secret = newSecret;
+    }
+}
+class Employee extends Person {
+    employeeId;
+    constructor(name, age, employeeId) {
+        super(name, age);
+        this.employeeId = employeeId;
+    }
+}
+class BankAccount {
+    accountNumber;
+    balance;
+    constructor(accountNumber, balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
-    BankAccount.prototype.deposit = function (amount) {
+    deposit(amount) {
         this.balance += amount;
-    };
-    return BankAccount;
-}());
-var SavingsAccount = /** @class */ (function (_super) {
-    __extends(SavingsAccount, _super);
-    function SavingsAccount(accountNumber, balance, interestRate) {
-        var _this = _super.call(this, accountNumber, balance) || this;
-        _this.interestRate = interestRate;
-        return _this;
     }
-    SavingsAccount.prototype.addInterest = function () {
+}
+class SavingsAccount extends BankAccount {
+    interestRate;
+    constructor(accountNumber, balance, interestRate) {
+        super(accountNumber, balance);
+        this.interestRate = interestRate;
+    }
+    addInterest() {
         this.balance += this.balance * this.interestRate;
-    };
-    SavingsAccount.prototype.withdraw = function (amount) {
+    }
+    withdraw(amount) {
         if (amount <= this.balance) {
             this.balance -= amount;
         }
         else {
             console.log("Insufficient funds");
         }
-    };
-    return SavingsAccount;
-}(BankAccount));
-var bankAccount = new SavingsAccount("123456789", 1000, 0.05);
+    }
+}
+const bankAccount = new SavingsAccount("123456789", 1000, 0.05);
 console.log(bankAccount.balance); // 1000
 bankAccount.deposit(500);
 console.log(bankAccount.balance); // 1500

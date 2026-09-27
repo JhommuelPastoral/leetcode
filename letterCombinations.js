@@ -1,7 +1,8 @@
+"use strict";
 function letterCombinations(digits) {
     if (!digits.length)
         return [];
-    var map = new Map([
+    const map = new Map([
         ['2', ['a', 'b', 'c']],
         ['3', ['d', 'e', 'f']],
         ['4', ['g', 'h', 'i']],
@@ -11,12 +12,12 @@ function letterCombinations(digits) {
         ['8', ['t', 'u', 'v']],
         ['9', ['w', 'x', 'y', 'z']],
     ]);
-    var res = [''];
-    for (var i = 0; i < digits.length; i++) {
-        var letters = map.get(digits[i]);
-        var temp = [];
-        for (var j = 0; j < res.length; j++) {
-            for (var k = 0; k < letters.length; k++) {
+    let res = [''];
+    for (let i = 0; i < digits.length; i++) {
+        const letters = map.get(digits[i]);
+        const temp = [];
+        for (let j = 0; j < res.length; j++) {
+            for (let k = 0; k < letters.length; k++) {
                 temp.push(res[j] + letters[k]);
             }
         }

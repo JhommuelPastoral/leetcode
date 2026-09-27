@@ -1,8 +1,9 @@
+"use strict";
 function getSumAbsoluteDifferences(nums) {
-    var res = [];
-    for (var i = 0; i < nums.length; i++) {
-        var sum = 0;
-        for (var j = 0; j < nums.length; j++) {
+    const res = [];
+    for (let i = 0; i < nums.length; i++) {
+        let sum = 0;
+        for (let j = 0; j < nums.length; j++) {
             if (j === i)
                 continue;
             sum += Math.abs(nums[i] - nums[j]);

@@ -1,10 +1,11 @@
+"use strict";
 function canCompleteCircuit(gas, cost) {
-    for (var i = 0; i < gas.length; i++) {
+    for (let i = 0; i < gas.length; i++) {
         if (gas[i] < cost[i])
             continue;
-        var tempCounter = i + 1;
-        var tank = gas[i] - cost[i];
-        var isValid = true;
+        let tempCounter = i + 1;
+        let tank = gas[i] - cost[i];
+        let isValid = true;
         while (tempCounter !== i) {
             if (tempCounter === gas.length)
                 tempCounter = 0;

@@ -1,10 +1,9 @@
 "use strict";
 function removeDuplicates(s) {
-    var _a;
     const stack = [];
     for (let i = 0; i < s.length; i++) {
         const curr = s[i];
-        const lastIndex = (_a = stack[stack.length - 1]) !== null && _a !== void 0 ? _a : '';
+        const lastIndex = stack[stack.length - 1] ?? '';
         if (curr === lastIndex)
             stack.pop();
         else

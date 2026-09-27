@@ -1,8 +1,8 @@
+"use strict";
 function splitWordsBySeparator(words, separator) {
-    var res = [];
-    for (var _i = 0, words_1 = words; _i < words_1.length; _i++) {
-        var word = words_1[_i];
-        var separated = word.split(separator).filter(function (val) { return val.length >= 1; });
+    let res = [];
+    for (let word of words) {
+        const separated = word.split(separator).filter((val) => val.length >= 1);
         res.push(separated);
     }
     return res.flat();

@@ -1,7 +1,8 @@
+"use strict";
 function findDisappearedNumbers(nums) {
-    var set = new Set(nums);
-    var res = [];
-    for (var i = 1; i <= nums.length; i++) {
+    const set = new Set(nums);
+    const res = [];
+    for (let i = 1; i <= nums.length; i++) {
         if (!set.has(i)) {
             res.push(i);
         }

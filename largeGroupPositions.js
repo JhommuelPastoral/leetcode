@@ -1,8 +1,9 @@
+"use strict";
 function largeGroupPositions(s) {
-    var result = [];
-    for (var i = 0; i < s.length - 1; i++) {
+    const result = [];
+    for (let i = 0; i < s.length - 1; i++) {
         if (s[i] === s[i + 1]) {
-            var end = i + 1;
+            let end = i + 1;
             while (s[end] === s[end + 1]) {
                 end++;
             }

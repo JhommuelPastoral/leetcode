@@ -1,8 +1,9 @@
+"use strict";
 function hasSpecialSubstring(s, k) {
-    for (var i = 0; i <= s.length - k; i++) {
-        var ch = s[i];
-        var same = true;
-        for (var j = i + 1; j < i + k; j++) {
+    for (let i = 0; i <= s.length - k; i++) {
+        const ch = s[i];
+        let same = true;
+        for (let j = i + 1; j < i + k; j++) {
             if (s[j] !== ch) {
                 same = false;
                 break;
@@ -10,8 +11,8 @@ function hasSpecialSubstring(s, k) {
         }
         if (!same)
             continue;
-        var leftOk = i === 0 || s[i - 1] !== ch;
-        var rightOk = i + k === s.length || s[i + k] !== ch;
+        const leftOk = i === 0 || s[i - 1] !== ch;
+        const rightOk = i + k === s.length || s[i + k] !== ch;
         if (leftOk && rightOk)
             return true;
     }

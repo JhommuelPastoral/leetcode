@@ -1,11 +1,11 @@
+"use strict";
 function differenceOfSum(nums) {
-    var elementSum = 0;
-    var digitSum = 0;
-    for (var _i = 0, nums_1 = nums; _i < nums_1.length; _i++) {
-        var num = nums_1[_i];
+    let elementSum = 0;
+    let digitSum = 0;
+    for (let num of nums) {
         elementSum += num;
         while (num > 0) {
-            var digit = num % 10;
+            const digit = num % 10;
             num = Math.floor(num / 10);
             digitSum += digit;
         }
