@@ -1,6 +1,5 @@
-"use strict";
 function reverseWords(s) {
-    const trim = s.trim().split(' ').filter((str) => str.length !== 0);
+    var trim = s.trim().split(' ').filter(function (str) { return str.length !== 0; });
     return trim.reverse().join(' ');
 }
 ;
