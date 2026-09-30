@@ -30,6 +30,16 @@ var Hero = /** @class */ (function () {
     Hero.prototype.getHealth = function () {
         return this.health;
     };
+    Hero.prototype.getMana = function () {
+        return this.mana;
+    };
+    Hero.prototype.usePotionHealth = function (amount) {
+        if (this.health + amount > this.maxHealth) {
+            this.health = this.maxHealth;
+        }
+        else
+            this.health += amount;
+    };
     return Hero;
 }());
 var Warrior = /** @class */ (function (_super) {
@@ -61,3 +71,37 @@ var enemyMage = new Mage("Gandalf");
 console.log("".concat(warrior.name, " attacks ").concat(enemyMage.name));
 warrior.attack(enemyMage);
 console.log("".concat(enemyMage.name, " health: ").concat(enemyMage.getHealth()));
+enemyMage.usePotionHealth(20);
+console.log("".concat(enemyMage.name, " uses a health potion. New health: ").concat(enemyMage.getHealth()));
+var Vehicle = /** @class */ (function () {
+    function Vehicle() {
+    }
+    Vehicle.prototype.go = function () { console.log("Vehicle is moving"); };
+    ;
+    return Vehicle;
+}());
+var Car = /** @class */ (function (_super) {
+    __extends(Car, _super);
+    function Car() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Car.prototype.go = function () {
+        console.log("Car is moving");
+    };
+    return Car;
+}(Vehicle));
+var Boat = /** @class */ (function (_super) {
+    __extends(Boat, _super);
+    function Boat() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Boat.prototype.go = function () {
+        console.log("Boat is moving");
+    };
+    return Boat;
+}(Vehicle));
+var Vehicles = [new Car(), new Boat()];
+for (var _i = 0, Vehicles_1 = Vehicles; _i < Vehicles_1.length; _i++) {
+    var vehicle = Vehicles_1[_i];
+    vehicle.go();
+}
