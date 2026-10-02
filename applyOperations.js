@@ -1,15 +1,15 @@
+"use strict";
 function applyOperations(nums) {
-    var _a;
-    for (var i = 0; i < nums.length - 1; i++) {
+    for (let i = 0; i < nums.length - 1; i++) {
         if (nums[i] === nums[i + 1]) {
             nums[i] = nums[i] * 2;
             nums[i + 1] = 0;
         }
     }
-    for (var i = 0; i < nums.length; i++) {
-        for (var j = i + 1; j < nums.length; j++) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
             if (!nums[i]) {
-                _a = [nums[j], nums[i]], nums[i] = _a[0], nums[j] = _a[1];
+                [nums[i], nums[j]] = [nums[j], nums[i]];
             }
             else
                 break;

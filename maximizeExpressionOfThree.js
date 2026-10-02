@@ -1,5 +1,6 @@
+"use strict";
 function maximizeExpressionOfThree(nums) {
-    nums.sort(function (a, b) { return b - a; });
+    nums.sort((a, b) => b - a);
     return nums[0] + nums[1] - nums[nums.length - 1];
 }
 ;

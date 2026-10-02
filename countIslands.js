@@ -1,12 +1,13 @@
+"use strict";
 function backTrack(grid, row, col, sum, seenPath) {
-    if (!grid[row][col] || seenPath.has("".concat(row, "-").concat(col)))
+    if (!grid[row][col] || seenPath.has(`${row}-${col}`))
         return sum;
-    seenPath.add("".concat(row, "-").concat(col));
+    seenPath.add(`${row}-${col}`);
     sum += grid[row][col];
-    var canUp = row - 1 >= 0 && !seenPath.has("".concat(row - 1, "-").concat(col));
-    var canDown = row + 1 < grid.length && !seenPath.has("".concat(row + 1, "-").concat(col));
-    var canRight = col + 1 < grid[row].length && !seenPath.has("".concat(row, "-").concat(col + 1));
-    var canLeft = col - 1 >= 0 && !seenPath.has("".concat(row, "-").concat(col - 1));
+    const canUp = row - 1 >= 0 && !seenPath.has(`${row - 1}-${col}`);
+    const canDown = row + 1 < grid.length && !seenPath.has(`${row + 1}-${col}`);
+    const canRight = col + 1 < grid[row].length && !seenPath.has(`${row}-${col + 1}`);
+    const canLeft = col - 1 >= 0 && !seenPath.has(`${row}-${col - 1}`);
     if (canUp)
         sum = backTrack(grid, row - 1, col, sum, seenPath);
     if (canDown)
@@ -18,13 +19,13 @@ function backTrack(grid, row, col, sum, seenPath) {
     return sum;
 }
 function countIslands(grid, k) {
-    var res = 0;
-    var seenPath = new Set();
-    for (var i = 0; i < grid.length; i++) {
-        for (var j = 0; j < grid[i].length; j++) {
-            if (!grid[i][j] || seenPath.has("".concat(i, "-").concat(j)))
+    let res = 0;
+    const seenPath = new Set();
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+            if (!grid[i][j] || seenPath.has(`${i}-${j}`))
                 continue;
-            var sum = backTrack(grid, i, j, 0, seenPath);
+            const sum = backTrack(grid, i, j, 0, seenPath);
             if (sum % k === 0)
                 res++;
         }

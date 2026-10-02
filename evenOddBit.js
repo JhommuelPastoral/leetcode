@@ -1,7 +1,8 @@
+"use strict";
 function evenOddBit(n) {
-    var str = n.toString(2);
-    var res = Array(2).fill(0);
-    for (var i = str.length - 1; i >= 0; i--) {
+    const str = n.toString(2);
+    const res = Array(2).fill(0);
+    for (let i = str.length - 1; i >= 0; i--) {
         if (str[i] === "1") {
             if ((str.length - 1 - i) % 2 === 0)
                 res[0]++;

@@ -1,13 +1,13 @@
+"use strict";
 function removeAnagrams(words) {
-    var deletedSet = new Set();
-    var _loop_1 = function (i) {
-        var wordMap = new Map();
-        words[i].split('').forEach(function (val) { var _a; return wordMap.set(val, ((_a = wordMap.get(val)) !== null && _a !== void 0 ? _a : 0) + 1); });
-        var nextWord = words[i + 1];
+    const deletedSet = new Set();
+    for (let i = 0; i < words.length - 1; i++) {
+        const wordMap = new Map();
+        words[i].split('').forEach((val) => wordMap.set(val, (wordMap.get(val) ?? 0) + 1));
+        const nextWord = words[i + 1];
         if (words[i].length !== nextWord.length)
-            return "continue";
-        for (var _i = 0, nextWord_1 = nextWord; _i < nextWord_1.length; _i++) {
-            var char = nextWord_1[_i];
+            continue;
+        for (const char of nextWord) {
             if (wordMap.get(char) === 1)
                 wordMap.delete(char);
             else if (wordMap.get(char) > 1)
@@ -17,11 +17,8 @@ function removeAnagrams(words) {
         }
         if (!wordMap.size)
             deletedSet.add(i + 1);
-    };
-    for (var i = 0; i < words.length - 1; i++) {
-        _loop_1(i);
     }
-    return words.filter(function (val, index) { if (!deletedSet.has(index))
+    return words.filter((val, index) => { if (!deletedSet.has(index))
         return val; });
 }
 ;

@@ -1,27 +1,28 @@
+"use strict";
 function medianSlidingWindow(nums, k) {
-    var res = [];
-    var arr = nums.slice(0, k).sort(function (a, b) { return a - b; });
-    for (var i = 0; i <= nums.length - k; i++) {
+    const res = [];
+    const arr = nums.slice(0, k).sort((a, b) => a - b);
+    for (let i = 0; i <= nums.length - k; i++) {
         if (k % 2 !== 0) {
             res.push(arr[Math.floor(k / 2)]);
         }
         else {
-            var median = (arr[Math.floor(k / 2)] + arr[Math.floor(k / 2) - 1]) / 2;
+            const median = (arr[Math.floor(k / 2)] + arr[Math.floor(k / 2) - 1]) / 2;
             res.push(median);
         }
         // No next window
         if (i === nums.length - k)
             break;
         // Remove outgoing number
-        var outgoing = nums[i];
-        var removeIndex = arr.indexOf(outgoing);
+        const outgoing = nums[i];
+        const removeIndex = arr.indexOf(outgoing);
         arr.splice(removeIndex, 1);
         // Add incoming number
-        var incoming = nums[i + k];
-        var left = 0;
-        var right = arr.length;
+        const incoming = nums[i + k];
+        let left = 0;
+        let right = arr.length;
         while (left < right) {
-            var mid = Math.floor((left + right) / 2);
+            const mid = Math.floor((left + right) / 2);
             if (arr[mid] < incoming) {
                 left = mid + 1;
             }

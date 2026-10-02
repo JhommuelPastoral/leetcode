@@ -1,14 +1,15 @@
+"use strict";
 function numDifferentIntegers(word) {
-    var seen = new Set();
-    for (var i = 0; i < word.length; i++) {
-        var res = '';
+    const seen = new Set();
+    for (let i = 0; i < word.length; i++) {
+        let res = '';
         while (Number.isInteger(Number.parseInt(word[i]))) {
             res += word[i];
             i++;
         }
         if (res.length === 0)
             continue;
-        var num = BigInt(res).toString();
+        const num = BigInt(res).toString();
         if (!seen.has(num))
             seen.add(num);
     }

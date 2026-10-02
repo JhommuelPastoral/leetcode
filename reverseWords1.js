@@ -1,17 +1,17 @@
+"use strict";
 function reverseWords(s) {
-    var vowelCount = 0;
-    var vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-    var arr = s.split(' ');
-    var res = arr[0];
-    for (var _i = 0, _a = arr[0]; _i < _a.length; _i++) {
-        var ch = _a[_i];
+    let vowelCount = 0;
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    const arr = s.split(' ');
+    let res = arr[0];
+    for (const ch of arr[0]) {
         if (vowels.has(ch))
             vowelCount++;
     }
-    for (var i = 1; i < arr.length; i++) {
-        var counter = 0;
-        var reverse = '';
-        for (var j = arr[i].length - 1; j >= 0; j--) {
+    for (let i = 1; i < arr.length; i++) {
+        let counter = 0;
+        let reverse = '';
+        for (let j = arr[i].length - 1; j >= 0; j--) {
             if (vowels.has(arr[i][j]))
                 counter++;
             if (counter > vowelCount) {
@@ -21,9 +21,9 @@ function reverseWords(s) {
             reverse += arr[i][j];
         }
         if (counter === vowelCount)
-            res += " ".concat(reverse);
+            res += ` ${reverse}`;
         else
-            res += " ".concat(arr[i]);
+            res += ` ${arr[i]}`;
     }
     return res;
 }

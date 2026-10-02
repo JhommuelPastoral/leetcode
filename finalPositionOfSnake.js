@@ -1,8 +1,8 @@
+"use strict";
 function finalPositionOfSnake(n, commands) {
-    var row = 0;
-    var col = 0;
-    for (var _i = 0, commands_1 = commands; _i < commands_1.length; _i++) {
-        var command = commands_1[_i];
+    let row = 0;
+    let col = 0;
+    for (const command of commands) {
         if (command === 'RIGHT')
             col++;
         else if (command === 'LEFT')
