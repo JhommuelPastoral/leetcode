@@ -1,8 +1,5 @@
-function numSmallerByFrequency(queries: string[], words: string[]): number[] {
-    const queryFreq:number[] = [];
-    const wordFreq:number[] = [];
-    const ans:number[] = [];
-    for(const query of queries){
+function s(arr:string[], freq:number[]):number[]{
+    for(const query of arr){
         const map = new Map<string,number>();
         let min = Infinity;
         let key = '';
@@ -14,23 +11,19 @@ function numSmallerByFrequency(queries: string[], words: string[]): number[] {
                 key = ch;
             }  
         }
-        queryFreq.push(map.get(key)!);
+        freq.push(map.get(key)!);
     }
-    for(const word of words){
-        const map = new Map<string,number>();
-        let min = Infinity;
-        let key = '';
-        for(const ch of word){
-            map.set(ch, (map.get(ch) ?? 0) + 1);
-            const ascii = ch.charCodeAt(0);
-            if(ascii < min){
-                min = ascii;
-                key = ch;
-            }  
-        }
-        wordFreq.push(map.get(key)!);
-    }
+    return freq;
+}
 
+
+function numSmallerByFrequency(queries: string[], words: string[]): number[] {
+    const queryFreq:number[] = [];
+    const wordFreq:number[] = [];
+    const ans:number[] = [];
+
+    s(queries, queryFreq);
+    s(words, wordFreq);
     for(const freq of queryFreq){
         let count = 0;
         for(let i = 0; i < wordFreq.length; i++){
@@ -41,7 +34,6 @@ function numSmallerByFrequency(queries: string[], words: string[]): number[] {
     
     return ans;
 };
-
 
 console.log(numSmallerByFrequency(["cbd"], ["zaaaz"]));
 console.log(numSmallerByFrequency(["bbb","cc"], ["a","aa","aaa","aaaa"]));
