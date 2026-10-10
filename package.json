@@ -1,0 +1,22 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "accountsMerge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc numSubarraysWithSum.ts && node numSubarraysWithSum.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhommuelPastoral/leetcode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JhommuelPastoral/leetcode/issues"
+  },
+  "homepage": "https://github.com/JhommuelPastoral/leetcode#readme"
+}
