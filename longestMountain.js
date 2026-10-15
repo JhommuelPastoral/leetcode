@@ -9,11 +9,9 @@ function longestMountain(arr) {
         var decreasingCounter = 0;
         var isIncreasing = true;
         var isDecreasing = false;
-        var prev = arr[i];
-        var temp = [prev];
+        var temp = [arr[i]];
         for (var j = i + 1; j < arr.length; j++) {
-            if (prev < arr[j] && !isDecreasing) {
-                prev = arr[j];
+            if (temp[temp.length - 1] < arr[j] && !isDecreasing) {
                 increasingCounter++;
                 temp.push(arr[j]);
             }
@@ -23,8 +21,7 @@ function longestMountain(arr) {
             }
             if (!increasingCounter)
                 break;
-            if (prev > arr[j] && !isIncreasing) {
-                prev = arr[j];
+            if (temp[temp.length - 1] > arr[j] && !isIncreasing) {
                 decreasingCounter++;
                 temp.push(arr[j]);
             }
