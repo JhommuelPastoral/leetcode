@@ -1,16 +1,15 @@
 function sortByBits(arr: number[]): number[] {
-    const map:number[][] = []
-    for(const val of arr){
-        const binary = val.toString(2);
-        let bitCounter = 0;
-        for(const bit of binary){
-            if(bit === '1') bitCounter++;
-        }
-        map.push([val,bitCounter])
-    }
-    const sorted = map.sort((a:number[], b:number[]) => a[1] - b[1] || a[0] - b[0]).map((val:number[]) => val[0]);
-    return sorted;
+    return  arr.sort((a:number, b:number) => bitCounter(a) - bitCounter(b)  || a - b)
 };
+function bitCounter(val:number):number{
+    const binary = val.toString(2);
+    let counter =0;
+    for(const bit of binary){
+        if(bit === '1') counter++;
+    }
+
+    return counter;
+}
 
 console.log(sortByBits([0,1,2,3,4,5,6,7,8]));
 console.log(sortByBits([1024,512,256,128,64,32,16,8,4,2,1]));
