@@ -8,21 +8,12 @@ function diagonalSort(mat: number[][]): number[][] {
         const temp = [];
         let tempRow = row;
         let tempCol = col;
-        while(tempRow < mat.length && tempCol < mat[0].length){
-            temp.push(mat[tempRow][tempCol]);
-            tempRow++;
-            tempCol++;
-        }
+        while(tempRow < mat.length && tempCol < mat[0].length) temp.push(mat[tempRow++][tempCol++]);
         temp.sort((a:number, b:number) => a - b);
         tempCol = col;
         tempRow = row;
         let index = 0;
-        while(tempRow < mat.length && tempCol < mat[0].length){
-            mat[tempRow][tempCol] = temp[index++];
-            tempRow++;
-            tempCol++;
-        }
-        
+        while(tempRow < mat.length && tempCol < mat[0].length) mat[tempRow++][tempCol++] = temp[index++];
         if(row > 0){
             row--;
             col = 0;

@@ -8,20 +8,14 @@ function diagonalSort(mat) {
         var temp = [];
         var tempRow = row;
         var tempCol = col;
-        while (tempRow < mat.length && tempCol < mat[0].length) {
-            temp.push(mat[tempRow][tempCol]);
-            tempRow++;
-            tempCol++;
-        }
+        while (tempRow < mat.length && tempCol < mat[0].length)
+            temp.push(mat[tempRow++][tempCol++]);
         temp.sort(function (a, b) { return a - b; });
         tempCol = col;
         tempRow = row;
         var index = 0;
-        while (tempRow < mat.length && tempCol < mat[0].length) {
-            mat[tempRow][tempCol] = temp[index++];
-            tempRow++;
-            tempCol++;
-        }
+        while (tempRow < mat.length && tempCol < mat[0].length)
+            mat[tempRow++][tempCol++] = temp[index++];
         if (row > 0) {
             row--;
             col = 0;
