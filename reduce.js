@@ -7,6 +7,6 @@ function reduce(nums, fn, init) {
     return val;
 }
 ;
-console.log(reduce([1, 2, 3, 4], function (accum, curr) { return accum + curr; }, 0));
+console.log(reduce([1, 2, 3, 4], function (accums, curr) { return accums + curr; }, 0));
 console.log(reduce([1, 2, 3, 4], function (accum, curr) { return accum * curr; }, 1));
 console.log(reduce([1, 2, 3, 4], function (accum, curr) { return Math.max(accum, curr); }, -Infinity));
