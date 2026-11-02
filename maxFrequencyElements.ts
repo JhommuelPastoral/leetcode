@@ -4,7 +4,7 @@ function maxFrequencyElements(nums: number[]): number {
     let res = 0;
     for(const num of nums){
         map.set(num, (map.get(num) ?? 0) +1);
-        max = Math.max(map.get(num), max);
+        max = Math.max(map.get(num)!, max);
     }
 
     for(const [key, value] of Array.from(map)){
